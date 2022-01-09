@@ -144,14 +144,14 @@
         //for (var i=0;i<obj.length;i++)
         //一个有六张图片，前两张代表小时，中间两张代表分钟，后两张代表秒，
         {
-            obj1[0].src=time1[0]+'.png';
-            obj1[1].src=time1[1]+'.png';
-            obj1[2].src=y+'.png';
-            obj1[3].src=time1[2]+'.png';
-            obj1[4].src=time1[3]+'.png';
-            obj1[5].src=y+'.png';
-            obj1[6].src=time1[4]+'.png';
-            obj1[7].src=time1[5]+'.png';
+            obj1[0].src='./images/'+time1[0]+'.png';
+            obj1[1].src='./images/'+time1[1]+'.png';
+            obj1[2].src='./images/'+y+'.png';
+            obj1[3].src='./images/'+time1[2]+'.png';
+            obj1[4].src='./images/'+time1[3]+'.png';
+            obj1[5].src='./images/'+y+'.png';
+            obj1[6].src='./images/'+time1[4]+'.png';
+            obj1[7].src='./images/'+time1[5]+'.png';
             //时间字符串是什么，就显示什么图片
         }
     }
@@ -166,14 +166,14 @@
         var obj=document.getElementsByTagName("img");
         function img1()
         {
-            obj[0].src=sg[0]+'.png';
-            obj[1].src='11.png';
-            obj[2].src=sg[1]+'.png';
-            obj[3].src=sg[2]+'.png';
-            obj[4].src=sg[3]+'.png';
-            obj[5].src=sg[4]+'.png';
-            obj[6].src=sg[5]+'.png';
-            obj[7].src=sg[6]+'.png';
+            obj[0].src='./images/'+sg[0]+'.png';
+            obj[1].src='./images/'+'11.png';
+            obj[2].src='./images/'+sg[1]+'.png';
+            obj[3].src='./images/'+sg[2]+'.png';
+            obj[4].src='./images/'+sg[3]+'.png';
+            obj[5].src='./images/'+sg[4]+'.png';
+            obj[6].src='./images/'+sg[5]+'.png';
+            obj[7].src='./images/'+sg[6]+'.png';
         }
         function tick1()
         {
@@ -215,14 +215,14 @@
 
 <body>
     <div id = "sg1"  class = "clock">
-        <img src="10.png"  />
-        <img src="10.png" />
-        <img src="10.png"  />
-        <img src="10.png" />
-        <img src="10.png" />
-        <img src="10.png" />
-        <img src="10.png"/>
-        <img src="10.png" />
+        <img src="./images/10.png"  />
+        <img src="./images/10.png" />
+        <img src="./images/10.png"  />
+        <img src="./images/10.png" />
+        <img src="./images/10.png" />
+        <img src="./images/10.png" />
+        <img src="./images/10.png"/>
+        <img src="./images/10.png" />
     </div>
     <script type="text/javascript" src="drag.js"> </script>
 </body>
