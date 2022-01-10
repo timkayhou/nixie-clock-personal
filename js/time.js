@@ -1,5 +1,4 @@
-var flag = 0;
-var sgVar = 0;
+var flag, sgVar = 0;
 var myTime = 24;
 var x = 1;
 var alpha1 = 100;
