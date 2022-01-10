@@ -126,20 +126,22 @@ function tick() {
 }
 
 function ran() {
-  // 创建屏幕显示的7位数组
-  var timeArray = new Array(7);
-  timeArray = new Array(7).fill(0)
+  // 创建7个0的数组
+  var timeArray = new Array(7).fill(0)
+  // 取得屏幕显示的8位数组
+  var obj = document.getElementById("timeImg");
   var j = 1;
-  var obj = document.getElementsByTagName("img");
   function img1() {
-    obj[0].src = './images/' + timeArray[0] + '.png';
-    obj[1].src = './images/' + '11.png';
-    obj[2].src = './images/' + timeArray[1] + '.png';
-    obj[3].src = './images/' + timeArray[2] + '.png';
-    obj[4].src = './images/' + timeArray[3] + '.png';
-    obj[5].src = './images/' + timeArray[4] + '.png';
-    obj[6].src = './images/' + timeArray[5] + '.png';
-    obj[7].src = './images/' + timeArray[6] + '.png';
+    if (timeArray.length == obj.length) {
+      obj[0].src = './images/' + timeArray[0] + '.png';
+      obj[1].src = './images/' + '11.png';
+      obj[2].src = './images/' + timeArray[1] + '.png';
+      obj[3].src = './images/' + timeArray[2] + '.png';
+      obj[4].src = './images/' + timeArray[3] + '.png';
+      obj[5].src = './images/' + timeArray[4] + '.png';
+      obj[6].src = './images/' + timeArray[5] + '.png';
+      obj[7].src = './images/' + timeArray[6] + '.png';
+    }
   }
   function tick1() {
     for (var i = 0; i < 7; i++) {
