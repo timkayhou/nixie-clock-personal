@@ -5,6 +5,8 @@ var x = 1;
 var alpha1 = 100;
 var bgSize, imageElement = document.getElementsByTagName('body');
 var imageElement1 = document.getElementsByTagName("div");
+var obj1 = document.getElementsByTagName("img");
+var s;
 window.wallpaperPropertyListener = {
   applyUserProperties: function (properties) {
     if (properties.time1) {
@@ -53,8 +55,6 @@ window.wallpaperPropertyListener = {
     }
   }
 }
-var s;
-var x;
 function imgDragStart() { return false; }
 window.onload = function () {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
@@ -84,14 +84,10 @@ function t() {
   flag++;
   return t;
 }
-var x = 0;
-var obj1 = document.getElementsByTagName("img");
-//以为当是个位数时，要显示01的状态
-function toNum(num)
-{
+function toNum(num){
+  // 一位数时间时补全0
   if (num < 10) { return '0' + num; }
   else { return "" + num; }
-
 }
 function tick() {
   var time = new Date();
