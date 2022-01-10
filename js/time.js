@@ -2,7 +2,7 @@ var clockVar = 0;
 var myTime = 24;
 var x = 1;
 var alpha1 = 100;
-var bgSize, imageElement = document.getElementsByTagName('body');
+var bodyElement = document.getElementsByTagName('body');
 var imageElement1 = document.getElementsByTagName("div");
 var obj1 = document.getElementsByTagName("img");
 var s;
@@ -15,18 +15,18 @@ window.wallpaperPropertyListener = {
     }
     if (properties.aBool) {
       if (properties.aBool.value) {
-        imageElement[0].style.background = "#000000";
+        bodyElement[0].style.background = "#000000";
         properties.bImage.value = "";
       }
     }
     if (properties.bImage) {
       if (properties.bImage.value) {
-        imageElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.bImage.value + ')';
+        bodyElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.bImage.value + ')';
       }
     }
     if (properties.combo) {
-      bgSize = properties.combo.value;
-      imageElement[0].style.backgroundSize = bgSize;
+      bodyElement = properties.combo.value;
+      bodyElement[0].style.backgroundSize = bodyElement;
     }
     if (properties.bAlpha) {
       alpha1 = properties.bAlpha.value;
@@ -57,21 +57,21 @@ window.wallpaperPropertyListener = {
   }
 }
 
-function imgDragStart() {
-  return false;
-}
-
 // 加载完毕时执行此函数
 window.onload = () => {
+  var date = new Date();
+  var dateIntegralPoint = new Date();
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   _drag(document.getElementById("clockDiv"));
   s = t();
-  var date = new Date();
-  var dateIntegralPoint = new Date();
   dateIntegralPoint.setHours(date.getHours() + 1);
   dateIntegralPoint.setMinutes(0);
   dateIntegralPoint.setSeconds(0);
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
+}
+
+function imgDragStart() {
+  return false;
 }
 
 // 下两个整点执行一次clickClock()
