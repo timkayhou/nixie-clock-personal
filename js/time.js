@@ -73,10 +73,12 @@ window.onload = function () {
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
 
+// 登录之后的下一个整点
 function nextIntegralPointAfterLogin() {
   clickClock();
   window.setInterval(clickClock, 60 * 60 * 1000);
 }
+
 
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
