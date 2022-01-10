@@ -1,5 +1,5 @@
 {
-	"concentrating": "Everyone",
+	"contentrating": "Everyone",
 	"description": "original\nhttp://steamcommunity.com/sharedfiles/filedetails/?id=822829466",
 	"file": "index.html",
 	"general": {
@@ -62,9 +62,8 @@
 				"type": "combo",
 				"value": "cover"
 			},
-			"schemeColor": {
-				"index": 0,
-				"order": 100,
+			"schemecolor": {
+				"order": 0,
 				"text": "主题色",
 				"type": "color",
 				"value": "0 0 0"
