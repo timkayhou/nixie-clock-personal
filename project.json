@@ -93,7 +93,7 @@
 		"Anime"
 	],
 	"title": "Nixie Clock",
-	"type": "web",
+	"type": "Web",
 	"version": 1,
 	"visibility": "public",
 	"workshopid": "2714796287",
