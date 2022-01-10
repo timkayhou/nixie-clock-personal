@@ -64,7 +64,7 @@ function imgDragStart() {
 // 加载完毕时执行此函数
 window.onload = () => {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
-  _drag(document.getElementById("sg1"));
+  _drag(document.getElementById("clockDiv"));
   s = t();
   var date = new Date();
   var dateIntegralPoint = new Date();
@@ -126,42 +126,42 @@ function tick() {
 }
 
 function ran() {
-  var sg = new Array(7);
+  var timeArray = new Array(7);
   for (var i = 0; i < 7; i++) {
-    sg[i] = 0;
+    timeArray[i] = 0;
   }
   var j = 1;
   var obj = document.getElementsByTagName("img");
   function img1() {
-    obj[0].src = './images/' + sg[0] + '.png';
+    obj[0].src = './images/' + timeArray[0] + '.png';
     obj[1].src = './images/' + '11.png';
-    obj[2].src = './images/' + sg[1] + '.png';
-    obj[3].src = './images/' + sg[2] + '.png';
-    obj[4].src = './images/' + sg[3] + '.png';
-    obj[5].src = './images/' + sg[4] + '.png';
-    obj[6].src = './images/' + sg[5] + '.png';
-    obj[7].src = './images/' + sg[6] + '.png';
+    obj[2].src = './images/' + timeArray[1] + '.png';
+    obj[3].src = './images/' + timeArray[2] + '.png';
+    obj[4].src = './images/' + timeArray[3] + '.png';
+    obj[5].src = './images/' + timeArray[4] + '.png';
+    obj[6].src = './images/' + timeArray[5] + '.png';
+    obj[7].src = './images/' + timeArray[6] + '.png';
   }
   function tick1() {
     for (var i = 0; i < 7; i++) {
-      sg[i] = j++ % 10;
+      timeArray[i] = j++ % 10;
     }
     img1();
   }
   function ran1() {
     if (Math.floor(Math.random() * 8) == clockVar) {
-      sg[0] = 1;
-      sg[1] = 0;
-      sg[2] = 4;
-      sg[3] = 8;
-      sg[4] = 5;
-      sg[5] = 9;
-      sg[6] = 6;
+      timeArray[0] = 1;
+      timeArray[1] = 0;
+      timeArray[2] = 4;
+      timeArray[3] = 8;
+      timeArray[4] = 5;
+      timeArray[5] = 9;
+      timeArray[6] = 6;
     }
     else {
-      sg[0] = Math.floor(Math.random() * 2);
+      timeArray[0] = Math.floor(Math.random() * 2);
       for (var i = 1; i < 7; i++) {
-        sg[i] = Math.floor(Math.random() * 10);
+        timeArray[i] = Math.floor(Math.random() * 10);
       }
     }
     img1();
