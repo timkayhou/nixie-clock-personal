@@ -1,37 +1,48 @@
 {
 	"concentrating": "Everyone",
-	"description": "更新：总之相当于每一小时自动点击一次，禁止手动点击，应求~\r\n如果想修改间隔时间：请去目录下打开index.html文件，Ctrl+F搜索window.setInterval(clickClock,3600000);自行修改时间即可，时间不能小于4000也就是4s，无上限。\r\n\r\nps：因为做不到点击和自动的切换，所以干脆就发到这儿，不开新的了，反正和之前的同样都不能点击，如果只想要纯时钟，直接把那一行删了应该也行\r\n\r\n\r\n\r\n侵删\r\n原版的链接↓\r\nhttp://steamcommunity.com/sharedfiles/filedetails/?id=822829466",
+	"description": "original\nhttp://steamcommunity.com/sharedfiles/filedetails/?id=822829466",
 	"file": "index.html",
 	"general": {
 		"properties": {
 			"CPosition": {
+				"index": 1,
+				"order": 101,
 				"text": "居中",
 				"type": "bool",
 				"value": true
 			},
 			"Drag": {
 				"condition": "!CPosition.value",
+				"index": 2,
+				"order": 102,
 				"text": "锁定",
 				"type": "bool",
 				"value": false
 			},
 			"aBool": {
+				"index": 3,
+				"order": 103,
 				"text": "使用默认壁纸",
 				"type": "bool",
 				"value": true
 			},
 			"bAlpha": {
+				"index": 4,
 				"max": 100,
 				"min": 0,
+				"order": 104,
 				"text": "透明度",
 				"type": "slider",
 				"value": 100
 			},
 			"bImage": {
+				"index": 5,
+				"order": 105,
 				"text": "设置壁纸",
 				"type": "file"
 			},
 			"combo": {
+				"index": 6,
 				"options": [
 					{
 						"label": "填充",
@@ -46,17 +57,20 @@
 						"value": "auto"
 					}
 				],
-				"text": "壁纸显示方式",
+				"order": 106,
+				"text": "填充方式",
 				"type": "combo",
 				"value": "cover"
 			},
 			"schemeColor": {
-				"order": 0,
-				"text": "ui_browse_properties_scheme_color",
+				"index": 0,
+				"order": 100,
+				"text": "主题色",
 				"type": "color",
 				"value": "0 0 0"
 			},
 			"time1": {
+				"index": 7,
 				"options": [
 					{
 						"label": "24h制",
@@ -67,6 +81,7 @@
 						"value": 12
 					}
 				],
+				"order": 107,
 				"text": "小时制",
 				"type": "combo",
 				"value": 24
@@ -79,9 +94,9 @@
 		"Anime"
 	],
 	"title": "Nixie Clock",
-	"type": "Web",
-	"version": "0",
+	"type": "web",
+	"version": "1",
 	"visibility": "public",
-	"workshopId": 843901179,
-	"workshopUrl": "steam://url/CommunityFilePage/843901179"
+	"workshopId": "2714790706",
+	"workshopUrl": "steam://url/CommunityFilePage/2714790706"
 }
