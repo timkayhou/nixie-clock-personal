@@ -1,4 +1,4 @@
-var flag, clockVar = 0;
+var clockVar = 0;
 var myTime = 24;
 var x = 1;
 var alpha1 = 100;
@@ -89,7 +89,6 @@ function clickClock() {
 }
 
 function t() {
-  flag++;
   return window.setInterval(tick, 1000);
 }
 
