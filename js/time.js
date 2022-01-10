@@ -7,6 +7,7 @@ var bgSize, imageElement = document.getElementsByTagName('body');
 var imageElement1 = document.getElementsByTagName("div");
 var obj1 = document.getElementsByTagName("img");
 var s;
+
 window.wallpaperPropertyListener = {
   applyUserProperties: function (properties) {
     if (properties.time1) {
@@ -55,7 +56,11 @@ window.wallpaperPropertyListener = {
     }
   }
 }
-function imgDragStart() { return false; }
+
+function imgDragStart() {
+  return false;
+}
+
 window.onload = function () {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("sg1"));
@@ -67,6 +72,7 @@ window.onload = function () {
   dateIntegralPoint.setSeconds(0);
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
+
 function nextIntegralPointAfterLogin() {
   clickClock();
   window.setInterval(clickClock, 60 * 60 * 1000);
@@ -80,15 +86,16 @@ function clickClock() {
 }
 
 function t() {
-  var t = window.setInterval(tick, 1000);
   flag++;
-  return t;
+  return window.setInterval(tick, 1000);
 }
+
+// 一位数时间时补全0
 function toNum(num){
-  // 一位数时间时补全0
   if (num < 10) { return '0' + num; }
   else { return "" + num; }
 }
+
 function tick() {
   var time = new Date();
   var time1;
@@ -118,6 +125,7 @@ function tick() {
     //时间字符串是什么，就显示什么图片
   }
 }
+
 function ran() {
   var sg = new Array(7);
   for (var i = 0; i < 7; i++) {
