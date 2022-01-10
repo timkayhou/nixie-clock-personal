@@ -8,6 +8,7 @@ var imageElement1 = document.getElementsByTagName("div");
 var obj1 = document.getElementsByTagName("img");
 var s;
 
+// Wallpaper Engine提供的全局对象，用户首次加载或更改墙纸的属性时触发
 window.wallpaperPropertyListener = {
   applyUserProperties: (properties) => {
     if (properties.time1) {
@@ -112,10 +113,7 @@ function tick() {
   x++;
   y = y + (x % 2 + 1);
 
-  //获取小时分钟秒的一个字符串
-  // console.log(time1);
-  //for (var i=0;i<obj.length;i++)
-  //一个有六张图片，前两张代表小时，中间两张代表分钟，后两张代表秒，
+  //获取时分秒
   {
     obj1[0].src = './images/' + time1[0] + '.png';
     obj1[1].src = './images/' + time1[1] + '.png';
@@ -125,7 +123,6 @@ function tick() {
     obj1[5].src = './images/' + y + '.png';
     obj1[6].src = './images/' + time1[4] + '.png';
     obj1[7].src = './images/' + time1[5] + '.png';
-    //时间字符串是什么，就显示什么图片
   }
 }
 
@@ -150,7 +147,6 @@ function ran() {
     for (var i = 0; i < 7; i++) {
       sg[i] = j++ % 10;
     }
-    //一个有六张图片，前两张代表小时，中间两张代表分钟，后两张代表秒，
     img1();
   }
   function ran1() {
