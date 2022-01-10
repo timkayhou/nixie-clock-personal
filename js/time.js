@@ -85,7 +85,7 @@ function nextIntegralPointAfterLogin() {
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
   clearInterval(s);
-  window.setTimeout(function () { s = t() }, 3000);
+  window.setTimeout(() => { s = t() }, 3000);
   ran();
 }
 
