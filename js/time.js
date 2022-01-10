@@ -63,7 +63,7 @@ function imgDragStart() {
 
 window.onload = function () {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
-  __drag(document.getElementById("sg1"));
+  _drag(document.getElementById("sg1"));
   s = t();
   var date = new Date();
   var dateIntegralPoint = new Date();

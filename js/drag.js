@@ -15,6 +15,7 @@ function bindEvent(element, eventName, func) {
   return func;
 }
 
+// 取消绑定func到element的eventName事件
 function removeEvent(element, eventName, func) {
   if (element.detachEvent) {
     if (eventName.indexOf('on')) {
@@ -31,7 +32,7 @@ function removeEvent(element, eventName, func) {
 }
 
 //创建接口
-function __drag(dragger) {
+function _drag(dragger) {
   var drag = bindEvent(dragger, 'onmousedown', function (e) {
     e = e || event;
     var mouseX = e.clientX || e.pageX;
