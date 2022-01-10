@@ -1,7 +1,9 @@
 // 绑定func到element的eventName事件上
 function bindEvent(element, eventName, func) {
   if (element.attachEvent) {
-    if (eventName.indexOf('on')) { eventName = 'on' + eventName }
+    if (eventName.indexOf('on')) {
+      eventName = 'on' + eventName
+    }
     element.attachEvent(eventName, func);
   }
   else {
@@ -15,7 +17,9 @@ function bindEvent(element, eventName, func) {
 
 function removeEvent(element, eventName, func) {
   if (element.detachEvent) {
-    if (eventName.indexOf('on')) { eventName = 'on' + eventName }
+    if (eventName.indexOf('on')) {
+      eventName = 'on' + eventName
+    }
     element.detachEvent(eventName, func);
   }
   else {
@@ -60,7 +64,6 @@ function __drag(dragger) {
         }
       });
       dragger.onDragEnd = bindEvent(document, 'onmouseup', function () {
-
         removeEvent(document, 'onmousemove', dragger.onDrag);
         removeEvent(document, 'onmouseup', dragger.onDragEnd);
         try {
@@ -70,7 +73,6 @@ function __drag(dragger) {
           dragger.removeAttribute('onDrag');
           dragger.removeAttribute('onDragEnd');
         }
-
       })
     }
   })
