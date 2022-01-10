@@ -9,7 +9,7 @@ var obj1 = document.getElementsByTagName("img");
 var s;
 
 window.wallpaperPropertyListener = {
-  applyUserProperties: function (properties) {
+  applyUserProperties: (properties) => {
     if (properties.time1) {
       myTime = properties.time1.value;
     }
@@ -61,7 +61,8 @@ function imgDragStart() {
   return false;
 }
 
-window.onload = function () {
+// 加载完毕时执行此函数
+window.onload = () => {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   _drag(document.getElementById("sg1"));
   s = t();
@@ -171,6 +172,6 @@ function ran() {
     img1();
   }
   var time1 = window.setInterval(tick1, 50);
-  window.setTimeout(function () { clearInterval(time1) }, 2000);
+  window.setTimeout(() => { clearInterval(time1) }, 2000);
   window.setTimeout(ran1, 2000);
 }

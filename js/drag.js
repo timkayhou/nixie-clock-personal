@@ -33,7 +33,7 @@ function removeEvent(element, eventName, func) {
 
 //创建接口
 function _drag(dragger) {
-  var drag = bindEvent(dragger, 'onmousedown', function (e) {
+  var drag = bindEvent(dragger, 'onmousedown', (e) => {
     e = e || event;
     var mouseX = e.clientX || e.pageX;
     var mouseY = e.clientY || e.pageY;
@@ -46,8 +46,7 @@ function _drag(dragger) {
     var screenBodyHeight = document.body.clientHeight - 242.22;
 
     if (!dragger.onDrag) {
-      dragger.onDrag = bindEvent(document, 'onmousemove', function (e) {
-
+      dragger.onDrag = bindEvent(document, 'onmousemove', (e) => {
         e = e || event;
         dragger.style.left = (e.clientX || e.pageX) - limitX + 'px';
         dragger.style.top = (e.clientY || e.pageY) - limitY + 'px';
@@ -64,7 +63,8 @@ function _drag(dragger) {
           dragger.style.top = 0 + "px";
         }
       });
-      dragger.onDragEnd = bindEvent(document, 'onmouseup', function () {
+
+      dragger.onDragEnd = bindEvent(document, 'onmouseup', () => {
         removeEvent(document, 'onmousemove', dragger.onDrag);
         removeEvent(document, 'onmouseup', dragger.onDragEnd);
         try {
