@@ -1,4 +1,4 @@
-var flag, sgVar = 0;
+var flag, clockVar = 0;
 var myTime = 24;
 var x = 1;
 var alpha1 = 100;
@@ -82,7 +82,7 @@ function nextIntegralPointAfterLogin() {
 
 
 function clickClock() {
-  sgVar = (sgVar + 1) % 8;
+  clockVar = (clockVar + 1) % 8;
   clearInterval(s);
   window.setTimeout(() => { s = t() }, 3000);
   ran();
@@ -149,7 +149,7 @@ function ran() {
     img1();
   }
   function ran1() {
-    if (Math.floor(Math.random() * 8) == sgVar) {
+    if (Math.floor(Math.random() * 8) == clockVar) {
       sg[0] = 1;
       sg[1] = 0;
       sg[2] = 4;
