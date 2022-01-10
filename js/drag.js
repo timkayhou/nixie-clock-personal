@@ -1,26 +1,28 @@
-function bindEvent(node, eventType, callback) {
-  if (node.attachEvent) {
-    if (eventType.indexOf('on')) { eventType = 'on' + eventType }
-    node.attachEvent(eventType, callback);
+// 绑定func到element的eventName事件上
+function bindEvent(element, eventName, func) {
+  if (element.attachEvent) {
+    if (eventName.indexOf('on')) { eventName = 'on' + eventName }
+    element.attachEvent(eventName, func);
   }
   else {
-    if (!eventType.indexOf('on')) {
-      eventType = eventType.substring(2, eventType.length)
+    if (!eventName.indexOf('on')) {
+      eventName = eventName.substring(2, eventName.length)
     }
-    node.addEventListener(eventType, callback, false);
+    element.addEventListener(eventName, func, false);
   }
-  return callback;
+  return func;
 }
-function removeEvent(node, eventType, callback) {
-  if (node.detachEvent) {
-    if (eventType.indexOf('on')) { eventType = 'on' + eventType }
-    node.detachEvent(eventType, callback);
+
+function removeEvent(element, eventName, func) {
+  if (element.detachEvent) {
+    if (eventName.indexOf('on')) { eventName = 'on' + eventName }
+    element.detachEvent(eventName, func);
   }
   else {
-    if (!eventType.indexOf('on')) {
-      eventType = eventType.substring(2, eventType.length);
+    if (!eventName.indexOf('on')) {
+      eventName = eventName.substring(2, eventName.length);
     }
-    node.removeEventListener(eventType, callback, false);
+    element.removeEventListener(eventName, func, false);
   }
 }
 
