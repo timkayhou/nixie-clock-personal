@@ -74,10 +74,10 @@ window.onload = () => {
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
 
-// 登录之后的下一个整点
+// 下两个整点执行一次clickClock()
 function nextIntegralPointAfterLogin() {
   clickClock();
-  window.setInterval(clickClock, 60 * 60 * 1000);
+  window.setInterval(clickClock, 3600000);
 }
 
 
@@ -99,6 +99,7 @@ function toNum(num){
 }
 
 function tick() {
+  // 获取当前时间
   var time = new Date();
   var time1;
   if (myTime == 12 && time.getHours() > 12) {
@@ -125,10 +126,9 @@ function tick() {
 }
 
 function ran() {
+  // 创建屏幕显示的7位数组
   var timeArray = new Array(7);
-  for (var i = 0; i < 7; i++) {
-    timeArray[i] = 0;
-  }
+  timeArray = new Array(7).fill(0)
   var j = 1;
   var obj = document.getElementsByTagName("img");
   function img1() {
@@ -148,6 +148,7 @@ function ran() {
     img1();
   }
   function ran1() {
+    // 如果clockVar为0-7的整数
     if (Math.floor(Math.random() * 8) == clockVar) {
       timeArray[0] = 1;
       timeArray[1] = 0;
