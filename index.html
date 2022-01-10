@@ -34,23 +34,23 @@
         if(properties.time1){
             myTime = properties.time1.value;
         }
-        if (properties.abool) {
-            if (properties.abool.value) {
+        if (properties.aBool) {
+            if (properties.aBool.value) {
                 imageElement[0].style.background = "#000000";
-                properties.bimage.value = "";
+                properties.bImage.value = "";
             }
         }
-        if (properties.bimage) {
-            if (properties.bimage.value) {
-                imageElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.bimage.value + ')';
+        if (properties.bImage) {
+            if (properties.bImage.value) {
+                imageElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.bImage.value + ')';
             }
         }
         if (properties.combo) {
                     bgSize = properties.combo.value;
                     imageElement[0].style.backgroundSize = bgSize;
                 }
-        if(properties.balpha){
-            alpha1 = properties.balpha.value;
+        if(properties.bAlpha){
+            alpha1 = properties.bAlpha.value;
             imageElement1[0].style.filter = 'alpha(opacity=' + alpha1 + ')';
             imageElement1[0].style.opacity = alpha1/100;
         }
@@ -80,11 +80,11 @@
 
     var s;
     var x ;
-    function imgdragstart(){return false;}
+    function imgDragStart(){return false;}
     window.onload = function()
     {
 
-        for(i in document.images)document.images[i].ondragstart=imgdragstart;
+        for(i in document.images)document.images[i].ondragstart=imgDragStart;
          __drag(_$("sg1"));
  		s = t();
     	var date = new Date();
@@ -95,11 +95,11 @@
         window.setTimeout(nextIntegralPointAfterLogin,dateIntegralPoint-date);
     }
     function nextIntegralPointAfterLogin(){
-        clickclock();
-        window.setInterval(clickclock,60*60*1000);
+        clickClock();
+        window.setInterval(clickClock,60*60*1000);
     }
 
-    function  clickclock()
+    function  clickClock()
     {
         sgVar = (sgVar+1)%8;
         clearInterval(s);
