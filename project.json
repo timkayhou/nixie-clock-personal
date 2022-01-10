@@ -1,6 +1,6 @@
 {
 	"contentrating": "Everyone",
-	"description": "更新：总之相当于每一小时自动点击一次，禁止手动点击，应求~\r\n如果想修改间隔时间：请去目录下打开index.html文件，Ctrl+F搜索window.setInterval(clickclock,3600000);自行修改时间即可，时间不能小于4000也就是4s，无上限。\r\n\r\nps：因为做不到点击和自动的切换，所以干脆就发到这儿，不开新的了，反正和之前的同样都不能点击，如果只想要纯时钟，直接把那一行删了应该也行\r\n\r\n\r\n\r\n侵删\r\n原版dalao的的链接↓\r\nhttp://steamcommunity.com/sharedfiles/filedetails/?id=822829466",
+	"description": "更新：总之相当于每一小时自动点击一次，禁止手动点击，应求~\r\n如果想修改间隔时间：请去目录下打开index.html文件，Ctrl+F搜索window.setInterval(clickClock,3600000);自行修改时间即可，时间不能小于4000也就是4s，无上限。\r\n\r\nps：因为做不到点击和自动的切换，所以干脆就发到这儿，不开新的了，反正和之前的同样都不能点击，如果只想要纯时钟，直接把那一行删了应该也行\r\n\r\n\r\n\r\n侵删\r\n原版的链接↓\r\nhttp://steamcommunity.com/sharedfiles/filedetails/?id=822829466",
 	"file": "index.html",
 	"general": {
 		"properties": {
@@ -15,19 +15,19 @@
 				"type": "bool",
 				"value": false
 			},
-			"abool": {
+			"aBool": {
 				"text": "使用默认壁纸",
 				"type": "bool",
 				"value": true
 			},
-			"balpha": {
+			"bAlpha": {
 				"max": 100,
 				"min": 0,
 				"text": "透明度",
 				"type": "slider",
 				"value": 100
 			},
-			"bimage": {
+			"bImage": {
 				"text": "设置壁纸",
 				"type": "file"
 			},
@@ -50,7 +50,7 @@
 				"type": "combo",
 				"value": "cover"
 			},
-			"schemecolor": {
+			"schemeColor": {
 				"order": 0,
 				"text": "ui_browse_properties_scheme_color",
 				"type": "color",
@@ -80,8 +80,8 @@
 	],
 	"title": "Nixie Clock(personal)",
 	"type": "Web",
-	"version": 0,
+	"version": "0",
 	"visibility": "public",
-	"workshopid": 843901179,
-	"workshopurl": "steam://url/CommunityFilePage/843901179"
+	"workshopId": 843901179,
+	"workshopUrl": "steam://url/CommunityFilePage/843901179"
 }
