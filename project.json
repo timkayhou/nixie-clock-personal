@@ -1,89 +1,111 @@
 {
-	"contentrating": "Everyone",
-	"description": "original\nhttp://steamcommunity.com/sharedfiles/filedetails/?id=822829466",
-	"file": "index.html",
-	"general": {
-		"properties": {
-			"clockIsCenter": {
-				"text": "居中",
-				"type": "bool",
-				"value": true
+	"contentrating" : "Everyone",
+	"description" : "",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"clockTransparency" : 
+			{
+				"index" : 5,
+				"max" : 100,
+				"min" : 0,
+				"order" : 105,
+				"text" : "透明度",
+				"type" : "slider",
+				"value" : 100
 			},
-			"lockClock": {
-				"condition": "!clockIsCenter.value",
-				"text": "锁定",
-				"type": "bool",
-				"value": false
+			"isClockCenter" : 
+			{
+				"index" : 0,
+				"order" : 100,
+				"text" : "居中",
+				"type" : "bool",
+				"value" : true
 			},
-			"useDefaultWallpaper": {
-				"text": "使用默认壁纸",
-				"type": "bool",
-				"value": true
+			"lockClockPosition" : 
+			{
+				"condition" : "!isClockCenter.value",
+				"index" : 1,
+				"order" : 101,
+				"text" : "锁定",
+				"type" : "bool",
+				"value" : false
 			},
-			"transparency": {
-				"max": 100,
-				"min": 0,
-				"text": "透明度",
-				"type": "slider",
-				"value": 100
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
 			},
-			"setWallpaper": {
-				"text": "设置壁纸",
-				"type": "file"
+			"setWallpaper" : 
+			{
+				"index" : 4,
+				"order" : 104,
+				"text" : "设置壁纸",
+				"type" : "file"
 			},
-			"fillStyle": {
-				"index": 6,
-				"options": [
+			"time1" : 
+			{
+				"index" : 2,
+				"options" : 
+				[
 					{
-						"label": "填充",
-						"value": "cover"
+						"label" : "12h制",
+						"value" : 12
 					},
 					{
-						"label": "拉伸",
-						"value": "contain"
-					},
-					{
-						"label": "平铺",
-						"value": "auto"
+						"label" : "24h制",
+						"value" : 24
 					}
 				],
-				"text": "填充方式",
-				"type": "combo",
-				"value": "cover"
+				"order" : 102,
+				"text" : "小时制",
+				"type" : "combo",
+				"value" : 24
 			},
-			"schemecolor": {
-				"order": 0,
-				"text": "主题色",
-				"type": "color",
-				"value": "0 0 0"
+			"useDefaultWallpaper" : 
+			{
+				"index" : 3,
+				"order" : 103,
+				"text" : "使用默认壁纸",
+				"type" : "bool",
+				"value" : true
 			},
-			"timeSystem": {
-				"options": [
+			"wallpaperFillType" : 
+			{
+				"index" : 6,
+				"options" : 
+				[
 					{
-						"label": "24h制",
-						"value": 24
+						"label" : "填充",
+						"value" : "cover"
 					},
 					{
-						"label": "12h制",
-						"value": 12
+						"label" : "拉伸",
+						"value" : "contain"
+					},
+					{
+						"label" : "平铺",
+						"value" : "auto"
 					}
 				],
-				"order": 107,
-				"text": "小时制",
-				"type": "combo",
-				"value": 12
+				"order" : 106,
+				"text" : "壁纸显示方式",
+				"type" : "combo",
+				"value" : "cover"
 			}
 		}
 	},
-	"monetization": false,
-	"preview": "preview.jpg",
-	"tags": [
-		"Anime"
-	],
-	"title": "Nixie Clock",
-	"type": "Web",
-	"version": 1,
-	"visibility": "public",
-	"workshopid": "2714796287",
-	"workshopurl": "steam://url/CommunityFilePage/2714796287"
+	"monetization" : false,
+	"preview" : "preview.jpg",
+	"tags" : [ "Anime" ],
+	"title" : "Nixie Clock",
+	"type" : "web",
+	"version" : 0,
+	"visibility" : "public",
+	"workshopid" : "2714796287",
+	"workshopurl" : "steam://url/CommunityFilePage/2714796287"
 }
