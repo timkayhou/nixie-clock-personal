@@ -6,10 +6,13 @@ var x = 1;
 var alpha1 = 100;
 var bgSize, imageElement = document.getElementsByTagName('body');
 var imageElement1 = document.getElementsByTagName("div");
+
+// 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
+  // 取得属性设置
   applyUserProperties: function (properties) {
-    if (properties.time1) {
-      myTime = properties.time1.value;
+    if (properties.timeSystem) {
+      myTime = properties.timeSystem.value;
     }
     if (properties.useDefaultWallpaper) {
       if (properties.useDefaultWallpaper.value) {
