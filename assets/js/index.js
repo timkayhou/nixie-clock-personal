@@ -49,13 +49,18 @@ window.wallpaperPropertyListener = {
     }
     if (properties.isClockCenter) {
       if (properties.isClockCenter.value) {
+        // 解除时钟位置锁定
         clockElement[0].onDrag = true;
+        // 时钟移动到左上角
         clockElement[0].style.left = 0;
         clockElement[0].style.top = 0;
+        // 恢复默认外边距
         clockElement[0].style.margin = "auto";
       }
       else {
+        // 时钟居中
         clockElement[0].style.margin = 0;
+        // 锁定时钟位置
         clockElement[0].onDrag = false;
       }
     }
