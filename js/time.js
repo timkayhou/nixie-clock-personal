@@ -9,32 +9,33 @@ var s;
 
 // Wallpaper Engine提供的全局对象，用户首次加载或更改墙纸的属性时触发
 window.wallpaperPropertyListener = {
+  // 传入project.json配置
   applyUserProperties: (properties) => {
-    if (properties.time1) {
-      myTime = properties.time1.value;
+    if (properties.timeSystem == 12) {
+      myTime = properties.timeSystem.value;
     }
-    if (properties.aBool) {
-      if (properties.aBool.value) {
+    if (properties.useDefaultWallpaper) {
+      if (properties.useDefaultWallpaper.value) {
         bodyElement[0].style.background = "#000000";
-        properties.bImage.value = "";
+        properties.setWallpaper.value = "";
       }
     }
-    if (properties.bImage) {
-      if (properties.bImage.value) {
-        bodyElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.bImage.value + ')';
+    if (properties.setWallpaper) {
+      if (properties.setWallpaper.value) {
+        bodyElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
       }
     }
-    if (properties.combo) {
-      bodyElement = properties.combo.value;
+    if (properties.fillStyle) {
+      bodyElement = properties.fillStyle.value;
       bodyElement[0].style.backgroundSize = bodyElement;
     }
-    if (properties.bAlpha) {
-      alpha1 = properties.bAlpha.value;
+    if (properties.transparency) {
+      alpha1 = properties.transparency.value;
       imageElement1[0].style.filter = 'alpha(opacity=' + alpha1 + ')';
       imageElement1[0].style.opacity = alpha1 / 100;
     }
-    if (properties.Drag) {
-      if (properties.Drag.value) {
+    if (properties.lockClock) {
+      if (properties.lockClock.value) {
         imageElement1[0].onDrag = true;
       }
       else {
@@ -42,8 +43,8 @@ window.wallpaperPropertyListener = {
         imageElement1[0].style.margin = 0;
       }
     }
-    if (properties.CPosition) {
-      if (properties.CPosition.value) {
+    if (properties.clockIsCenter) {
+      if (properties.clockIsCenter.value) {
         imageElement1[0].onDrag = true;
         imageElement1[0].style.left = 0;
         imageElement1[0].style.top = 0;
@@ -101,12 +102,12 @@ function toNum(num){
 function tick() {
   // 获取当前时间
   var time = new Date();
-  var time1;
+  var hourClock;
   if (myTime == 12 && time.getHours() > 12) {
-    time1 = toNum(time.getHours() - 12) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+    hourClock = toNum(time.getHours() - 12) + toNum(time.getMinutes()) + toNum(time.getSeconds());
   }
   else {
-    time1 = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+    hourClock = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
   }
   var y = '1';
   x++;
@@ -114,14 +115,14 @@ function tick() {
 
   //获取时分秒
   {
-    obj1[0].src = './images/' + time1[0] + '.png';
-    obj1[1].src = './images/' + time1[1] + '.png';
+    obj1[0].src = './images/' + hourClock[0] + '.png';
+    obj1[1].src = './images/' + hourClock[1] + '.png';
     obj1[2].src = './images/' + y + '.png';
-    obj1[3].src = './images/' + time1[2] + '.png';
-    obj1[4].src = './images/' + time1[3] + '.png';
+    obj1[3].src = './images/' + hourClock[2] + '.png';
+    obj1[4].src = './images/' + hourClock[3] + '.png';
     obj1[5].src = './images/' + y + '.png';
-    obj1[6].src = './images/' + time1[4] + '.png';
-    obj1[7].src = './images/' + time1[5] + '.png';
+    obj1[6].src = './images/' + hourClock[4] + '.png';
+    obj1[7].src = './images/' + hourClock[5] + '.png';
   }
 }
 
@@ -168,7 +169,7 @@ function ran() {
     }
     img1();
   }
-  var time1 = window.setInterval(tick1, 50);
-  window.setTimeout(() => { clearInterval(time1) }, 2000);
+  var timeSystem = window.setInterval(tick1, 50);
+  window.setTimeout(() => { clearInterval(timeSystem) }, 2000);
   window.setTimeout(ran1, 2000);
 }

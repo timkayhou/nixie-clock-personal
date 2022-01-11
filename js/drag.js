@@ -33,6 +33,7 @@ function removeEvent(element, eventName, func) {
 
 //创建接口
 function _drag(dragger) {
+  // 鼠标按下
   var drag = bindEvent(dragger, 'onmousedown', (e) => {
     e = e || event;
     var mouseX = e.clientX || e.pageX;
@@ -45,6 +46,7 @@ function _drag(dragger) {
     var screenBodyWide = document.body.clientWidth - 800;
     var screenBodyHeight = document.body.clientHeight - 242.22;
 
+    // 鼠标拖拽
     if (!dragger.onDrag) {
       dragger.onDrag = bindEvent(document, 'onmousemove', (e) => {
         e = e || event;
@@ -64,6 +66,7 @@ function _drag(dragger) {
         }
       });
 
+      // 鼠标松开
       dragger.onDragEnd = bindEvent(document, 'onmouseup', () => {
         removeEvent(document, 'onmousemove', dragger.onDrag);
         removeEvent(document, 'onmouseup', dragger.onDragEnd);
