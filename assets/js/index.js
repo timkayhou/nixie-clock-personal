@@ -37,13 +37,14 @@ window.wallpaperPropertyListener = {
       clockElement[0].style.filter = 'alpha(opacity=' + defaultTransparency + ')';
       clockElement[0].style.opacity = defaultTransparency / 100;
     }
-    if (properties.lockClockPosition) {
-      if (properties.lockClockPosition.value) {
+    if (properties.unlockClockPosition) {
+      if (properties.unlockClockPosition.value) {
+        // 解除时钟位置锁定
         clockElement[0].onDrag = true;
       }
       else {
+        // 锁定时钟位置
         clockElement[0].onDrag = false;
-        clockElement[0].style.margin = 0;
       }
     }
     if (properties.isClockCenter) {
