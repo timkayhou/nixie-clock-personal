@@ -1,65 +1,66 @@
 var flag = 0;
 var sgVar = 0;
-var timeFlag = true;
-var myTime = 24;
-var x = 1;
-var alpha1 = 100;
-var bgSize, imageElement = document.getElementsByTagName('body');
-var imageElement1 = document.getElementsByTagName("div");
+var x = 0;
+var s;
+var defaultTimeSystem = 24;
+var defaultTransparency = 100;
+var bodyElement = document.getElementsByTagName('body');
+var clockElement = document.getElementsByTagName("div");
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
   // 取得属性设置
   applyUserProperties: function (properties) {
     if (properties.timeSystem) {
-      myTime = properties.timeSystem.value;
+      // 设置小时制
+      defaultTimeSystem = properties.timeSystem.value;
     }
     if (properties.useDefaultWallpaper) {
       if (properties.useDefaultWallpaper.value) {
-        imageElement[0].style.background = "#000000";
-        properties.setWallpaper.value = "";
+        // 默认全黑背景
+        bodyElement[0].style.background = "#000000";
       }
     }
     if (properties.setWallpaper) {
       if (properties.setWallpaper.value) {
-        imageElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
+        // 手动设置壁纸
+        bodyElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
       }
     }
     if (properties.wallpaperFillType) {
-      bgSize = properties.wallpaperFillType.value;
-      imageElement[0].style.backgroundSize = bgSize;
+      // 设置图片填充方式
+      bodyElement[0].style.backgroundSize = properties.wallpaperFillType.value;
     }
     if (properties.clockTransparency) {
-      alpha1 = properties.clockTransparency.value;
-      imageElement1[0].style.filter = 'alpha(opacity=' + alpha1 + ')';
-      imageElement1[0].style.opacity = alpha1 / 100;
+      // 设置时钟透明度
+      defaultTransparency = properties.clockTransparency.value;
+      clockElement[0].style.filter = 'alpha(opacity=' + defaultTransparency + ')';
+      clockElement[0].style.opacity = defaultTransparency / 100;
     }
     if (properties.lockClockPosition) {
       if (properties.lockClockPosition.value) {
-        imageElement1[0].onDrag = true;
+        clockElement[0].onDrag = true;
       }
       else {
-        imageElement1[0].onDrag = false;
-        imageElement1[0].style.margin = 0;
+        clockElement[0].onDrag = false;
+        clockElement[0].style.margin = 0;
       }
     }
     if (properties.isClockCenter) {
       if (properties.isClockCenter.value) {
-        imageElement1[0].onDrag = true;
-        imageElement1[0].style.left = 0;
-        imageElement1[0].style.top = 0;
-        imageElement1[0].style.margin = "auto";
+        clockElement[0].onDrag = true;
+        clockElement[0].style.left = 0;
+        clockElement[0].style.top = 0;
+        clockElement[0].style.margin = "auto";
       }
       else {
-        imageElement1[0].style.margin = 0;
-        imageElement1[0].onDrag = false;
+        clockElement[0].style.margin = 0;
+        clockElement[0].onDrag = false;
       }
     }
   }
 }
 
-var s;
-var x;
 function imgDragStart() { return false; }
 
 window.onload = function () {
@@ -91,7 +92,6 @@ function t() {
   flag++;
   return t;
 }
-var x = 0;
 var obj1 = document.getElementsByTagName("img");
 function toNum(num) {
   if (num < 10) { return '0' + num; }
@@ -101,7 +101,7 @@ function toNum(num) {
 function tick() {
   var time = new Date();
   var time1;
-  if (myTime == 12 && time.getHours() > 12) {
+  if (defaultTimeSystem == 12 && time.getHours() > 12) {
     time1 = toNum(time.getHours() - 12) + toNum(time.getMinutes()) + toNum(time.getSeconds());
   }
   else {
