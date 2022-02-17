@@ -74,11 +74,10 @@ window.wallpaperPropertyListener = {
 
 // 网页加载完毕后立刻执行
 window.onload = () => {
+  var date, dateIntegralPoint = new Date();
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("clockDiv"));
   s = t();
-  var date = new Date();
-  var dateIntegralPoint = new Date();
   dateIntegralPoint.setHours(date.getHours() + 1);
   dateIntegralPoint.setMinutes(0);
   dateIntegralPoint.setSeconds(0);
