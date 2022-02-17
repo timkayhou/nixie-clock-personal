@@ -70,7 +70,7 @@ window.wallpaperPropertyListener = {
 function imgDragStart() { return false; }
 
 // 网页加载完毕后立刻执行
-window.onload = function () {
+window.onload = () => {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("clockDiv"));
   s = t();
@@ -91,7 +91,7 @@ function nextIntegralPointAfterLogin() {
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
   clearInterval(s);
-  window.setTimeout(function () { s = t() }, 3000);
+  window.setTimeout(() => { s = t() }, 3000);
   ran();
 }
 
@@ -172,6 +172,6 @@ function ran() {
     img1();
   }
   var time1 = window.setInterval(tick1, 50);
-  window.setTimeout(function () { clearInterval(time1) }, 2000);
+  window.setTimeout(() => { clearInterval(time1) }, 2000);
   window.setTimeout(isSteinsGate, 2000);
 }
