@@ -1,5 +1,6 @@
 var sgVar = 0;
-var startClock;
+// 时钟执行或清零
+var clockStatus;
 // 用于时钟内每秒左右闪烁的点的图片的切换
 var parityCheckFlag = 0;
 // 默认24小时制
@@ -78,11 +79,12 @@ window.onload = () => {
   // 获取当前时间
   var date = new Date();
   var dateIntegralPoint = new Date();
+  //
   for (i in document.images) {
-    document.images[i].ondragstart = false;
+    document.images[i].ondragstart = () => { return false; };
   }
   __drag(_$("clockDiv"));
-  startClock = setClockEverySecond();
+  clockStatus = setClockEverySecond();
   dateIntegralPoint.setHours(date.getHours() + 1);
   dateIntegralPoint.setMinutes(0);
   dateIntegralPoint.setSeconds(0);
@@ -135,9 +137,9 @@ function toNum(num) {
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
   // 停止时钟
-  clearInterval(startClock);
+  clearInterval(clockStatus);
   // 3秒之后开始时钟
-  window.setTimeout(() => { startClock = setClockEverySecond() }, 3000);
+  window.setTimeout(() => { clockStatus = setClockEverySecond() }, 3000);
   ran();
 }
 
