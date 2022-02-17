@@ -77,7 +77,9 @@ window.wallpaperPropertyListener = {
 window.onload = () => {
   // 获取当前时间
   var date, dateIntegralPoint = new Date();
-  for (i in document.images) document.images[i].ondragstart = imgDragStart;
+  for (i in document.images) {
+    document.images[i].ondragstart = false;
+  }
   __drag(_$("clockDiv"));
   startClock = setClockEverySecond();
   dateIntegralPoint.setHours(date.getHours() + 1);
@@ -85,8 +87,6 @@ window.onload = () => {
   dateIntegralPoint.setSeconds(0);
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
-
-function imgDragStart() { return false; }
 
 function setClockEverySecond() {
   // 每秒更新一次时间图片
@@ -104,7 +104,6 @@ function setTimeImages() {
     // 将当前时间转换为12小时制
     nowTimeNumbers -= 120000;
   }
-  console.log(time);
   parityCheckFlag++;
   var dotImageFileName = '1';
   // 点的图片文件名为'11'或'12'
@@ -134,8 +133,9 @@ function toNum(num) {
 
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
-  // 停止计时器
+  // 停止时钟
   clearInterval(startClock);
+  // 3秒之后开始时钟
   window.setTimeout(() => { startClock = setClockEverySecond() }, 3000);
   ran();
 }
