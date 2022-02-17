@@ -1,5 +1,5 @@
 var sgVar = 0;
-var s;
+var startClock;
 // 用于时钟内每秒左右闪烁的点的图片的切换
 var parityCheckFlag = 0;
 // 默认24小时制
@@ -79,7 +79,7 @@ window.onload = () => {
   var date, dateIntegralPoint = new Date();
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("clockDiv"));
-  s = setClockEverySecond();
+  startClock = setClockEverySecond();
   dateIntegralPoint.setHours(date.getHours() + 1);
   dateIntegralPoint.setMinutes(0);
   dateIntegralPoint.setSeconds(0);
@@ -135,8 +135,8 @@ function toNum(num) {
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
   // 停止计时器
-  clearInterval(s);
-  window.setTimeout(() => { s = setClockEverySecond() }, 3000);
+  clearInterval(startClock);
+  window.setTimeout(() => { startClock = setClockEverySecond() }, 3000);
   ran();
 }
 
