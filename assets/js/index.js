@@ -81,7 +81,7 @@ window.onload = () => {
   var dateIntegralPoint = new Date();
   //
   for (i in document.images) {
-    document.images[i].ondragstart = () => { return false; };
+    document.images[i].ondragstart = imageDragStart;
   }
   __drag(_$("clockDiv"));
   clockStatus = setClockEverySecond();
@@ -90,6 +90,9 @@ window.onload = () => {
   dateIntegralPoint.setSeconds(0);
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
+
+// 图片开始拖拽
+function imageDragStart() { return false; }
 
 function setClockEverySecond() {
   // 每秒更新一次时间图片
