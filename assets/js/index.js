@@ -1,6 +1,8 @@
 var flag = 0;
 var sgVar = 0;
 var s;
+// 用于时钟内每秒左右闪烁的点的图片的切换
+var parityCheckFlag = 0;
 // 默认24小时制
 var defaultTimeSystem = 24;
 // 默认不透明
@@ -105,7 +107,6 @@ function tick() {
     nowTimeNumbers -= 120000;
   }
   console.log(time);
-  var parityCheckFlag = 0;
   parityCheckFlag++;
   var y = '1';
   y = y + (parityCheckFlag % 2 + 1);
