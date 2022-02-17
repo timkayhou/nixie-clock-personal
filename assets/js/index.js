@@ -10,7 +10,7 @@ var defaultTransparency = 100;
 // 网页主体元素
 var bodyElement = document.getElementsByTagName('body');
 // 钟表块元素
-var clockElement = document.getElementById("clockDiv");
+var clockElement = document.getElementsByTagName("div");
 // 表盘数字元素
 var imageElements = document.getElementsByTagName("img");
 
