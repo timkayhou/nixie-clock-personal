@@ -6,8 +6,10 @@ var defaultTimeSystem = 24;
 var defaultTransparency = 100;
 // 网页主体元素
 var bodyElement = document.getElementsByTagName('body');
-// 钟表DIV
+// 钟表块元素
 var clockElement = document.getElementById("clockDiv");
+// 表盘数字元素
+var obj1 = document.getElementsByTagName("img");
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
@@ -91,25 +93,12 @@ function nextIntegralPointAfterLogin() {
   window.setInterval(clickClock, 60 * 60 * 1000);
 }
 
-function clickClock() {
-  sgVar = (sgVar + 1) % 8;
-  // 停止计时器
-  clearInterval(s);
-  window.setTimeout(() => { s = t() }, 3000);
-  ran();
-}
-
 function t() {
   var t = window.setInterval(tick, 1000);
   flag++;
   return t;
 }
-var obj1 = document.getElementsByTagName("img");
-function toNum(num) {
-  if (num < 10) { return '0' + num; }
-  else { return "" + num; }
 
-}
 function tick() {
   var time = new Date();
   var time1;
@@ -133,6 +122,21 @@ function tick() {
     obj1[7].src = './assets/images/' + time1[5] + '.png';
   }
 }
+
+function toNum(num) {
+  if (num < 10) { return '0' + num; }
+  else { return "" + num; }
+
+}
+
+function clickClock() {
+  sgVar = (sgVar + 1) % 8;
+  // 停止计时器
+  clearInterval(s);
+  window.setTimeout(() => { s = t() }, 3000);
+  ran();
+}
+
 function ran() {
   var sg = new Array(7);
   for (var i = 0; i < 7; i++) {
@@ -140,6 +144,17 @@ function ran() {
   }
   var j = 1;
   var obj = document.getElementsByTagName("img");
+  var time1 = window.setInterval(tick1, 50);
+  window.setTimeout(() => { clearInterval(time1) }, 2000);
+  window.setTimeout(isSteinsGate, 2000);
+  function tick1() {
+    for (var i = 0; i < 7; i++) {
+      sg[i] = j++ % 10;
+    }
+    // 设置图片路径
+    img1();
+  }
+  // 设置图片路径
   function img1() {
     obj[0].src = './assets/images/' + sg[0] + '.png';
     obj[1].src = './assets/images/' + '11.png';
@@ -150,14 +165,8 @@ function ran() {
     obj[6].src = './assets/images/' + sg[5] + '.png';
     obj[7].src = './assets/images/' + sg[6] + '.png';
   }
-  function tick1() {
-    for (var i = 0; i < 7; i++) {
-      sg[i] = j++ % 10;
-    }
-    img1();
-  }
   function isSteinsGate() {
-    //  返回小于或等于一个给定数字的最大整数
+    // 返回小于或等于一个给定数字的最大整数
     if (Math.floor(Math.random() * 8) == sgVar) {
       sg[0] = 1;
       sg[1] = 0;
@@ -175,7 +184,4 @@ function ran() {
     }
     img1();
   }
-  var time1 = window.setInterval(tick1, 50);
-  window.setTimeout(() => { clearInterval(time1) }, 2000);
-  window.setTimeout(isSteinsGate, 2000);
 }
