@@ -92,26 +92,28 @@ function t() {
 }
 
 function tick() {
+  // 获取当前时间
   var time = new Date();
-  var time1;
+  var nowTimeNumbers;
+  // 12小时制且当前时间为下午时
   if (defaultTimeSystem == 12 && time.getHours() > 12) {
-    time1 = toNum(time.getHours() - 12) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+    nowTimeNumbers = toNum(time.getHours() - 12) + toNum(time.getMinutes()) + toNum(time.getSeconds());
   }
   else {
-    time1 = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+    nowTimeNumbers = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
   }
   var y = '1';
   x++;
   y = y + (x % 2 + 1);
   {
-    imageElements[0].src = './assets/images/' + time1[0] + '.png';
-    imageElements[1].src = './assets/images/' + time1[1] + '.png';
+    imageElements[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
+    imageElements[1].src = './assets/images/' + nowTimeNumbers[1] + '.png';
     imageElements[2].src = './assets/images/' + y + '.png';
-    imageElements[3].src = './assets/images/' + time1[2] + '.png';
-    imageElements[4].src = './assets/images/' + time1[3] + '.png';
+    imageElements[3].src = './assets/images/' + nowTimeNumbers[2] + '.png';
+    imageElements[4].src = './assets/images/' + nowTimeNumbers[3] + '.png';
     imageElements[5].src = './assets/images/' + y + '.png';
-    imageElements[6].src = './assets/images/' + time1[4] + '.png';
-    imageElements[7].src = './assets/images/' + time1[5] + '.png';
+    imageElements[6].src = './assets/images/' + nowTimeNumbers[4] + '.png';
+    imageElements[7].src = './assets/images/' + nowTimeNumbers[5] + '.png';
   }
 }
 function nextIntegralPointAfterLogin() {
