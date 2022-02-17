@@ -76,7 +76,8 @@ window.wallpaperPropertyListener = {
 // 网页加载完毕后立刻执行
 window.onload = () => {
   // 获取当前时间
-  var date, dateIntegralPoint = new Date();
+  var date = new Date();
+  var dateIntegralPoint = new Date();
   for (i in document.images) {
     document.images[i].ondragstart = false;
   }
