@@ -4,13 +4,15 @@ var x = 0;
 var s;
 var defaultTimeSystem = 24;
 var defaultTransparency = 100;
+// 网页主体元素
 var bodyElement = document.getElementsByTagName('body');
-var clockElement = document.getElementsByTagName("div");
+// 钟表DIV
+var clockElement = document.getElementById("clockDiv");
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
   // 取得属性设置
-  applyUserProperties: function (properties) {
+  applyUserProperties: (properties) => {
     if (properties.timeSystem) {
       // 设置小时制
       defaultTimeSystem = properties.timeSystem.value;
@@ -67,7 +69,6 @@ window.wallpaperPropertyListener = {
   }
 }
 
-function imgDragStart() { return false; }
 
 // 网页加载完毕后立刻执行
 window.onload = () => {
@@ -82,6 +83,8 @@ window.onload = () => {
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
 
+function imgDragStart() { return false; }
+
 function nextIntegralPointAfterLogin() {
   clickClock();
   // 一小时之后再次触发
@@ -90,6 +93,7 @@ function nextIntegralPointAfterLogin() {
 
 function clickClock() {
   sgVar = (sgVar + 1) % 8;
+  // 停止计时器
   clearInterval(s);
   window.setTimeout(() => { s = t() }, 3000);
   ran();
