@@ -9,7 +9,7 @@ var bodyElement = document.getElementsByTagName('body');
 // 钟表块元素
 var clockElement = document.getElementById("clockDiv");
 // 表盘数字元素
-var obj1 = document.getElementsByTagName("img");
+var imageElements = document.getElementsByTagName("img");
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
@@ -104,14 +104,14 @@ function tick() {
   x++;
   y = y + (x % 2 + 1);
   {
-    obj1[0].src = './assets/images/' + time1[0] + '.png';
-    obj1[1].src = './assets/images/' + time1[1] + '.png';
-    obj1[2].src = './assets/images/' + y + '.png';
-    obj1[3].src = './assets/images/' + time1[2] + '.png';
-    obj1[4].src = './assets/images/' + time1[3] + '.png';
-    obj1[5].src = './assets/images/' + y + '.png';
-    obj1[6].src = './assets/images/' + time1[4] + '.png';
-    obj1[7].src = './assets/images/' + time1[5] + '.png';
+    imageElements[0].src = './assets/images/' + time1[0] + '.png';
+    imageElements[1].src = './assets/images/' + time1[1] + '.png';
+    imageElements[2].src = './assets/images/' + y + '.png';
+    imageElements[3].src = './assets/images/' + time1[2] + '.png';
+    imageElements[4].src = './assets/images/' + time1[3] + '.png';
+    imageElements[5].src = './assets/images/' + y + '.png';
+    imageElements[6].src = './assets/images/' + time1[4] + '.png';
+    imageElements[7].src = './assets/images/' + time1[5] + '.png';
   }
 }
 function nextIntegralPointAfterLogin() {
