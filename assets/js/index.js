@@ -150,7 +150,7 @@ function ran() {
     }
     img1();
   }
-  function ran1() {
+  function isSteinsGate() {
     if (Math.floor(Math.random() * 8) == sgVar) {
       sg[0] = 1;
       sg[1] = 0;
@@ -170,5 +170,5 @@ function ran() {
   }
   var time1 = window.setInterval(tick1, 50);
   window.setTimeout(function () { clearInterval(time1) }, 2000);
-  window.setTimeout(ran1, 2000);
+  window.setTimeout(isSteinsGate, 2000);
 }
