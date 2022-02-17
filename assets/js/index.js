@@ -91,12 +91,12 @@ function imgDragStart() { return false; }
 
 function t() {
   // 每秒执行一次tick函数
-  var t = window.setInterval(tick, 1000);
+  var t = window.setInterval(setTimeImages, 1000);
   flag++;
   return t;
 }
 
-function tick() {
+function setTimeImages() {
   // 获取当前时间
   var time = new Date();
   // 获取当前十分秒的六位数字
@@ -109,6 +109,7 @@ function tick() {
   console.log(time);
   parityCheckFlag++;
   var dotImageFileName = '1';
+  // 点的图片文件名为'11'或'12'
   dotImageFileName = dotImageFileName + (parityCheckFlag % 2 + 1);
   {
     imageElements[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
