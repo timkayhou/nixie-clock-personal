@@ -69,6 +69,7 @@ window.wallpaperPropertyListener = {
 
 function imgDragStart() { return false; }
 
+// 网页加载完毕后立刻执行
 window.onload = function () {
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("clockDiv"));
@@ -83,6 +84,7 @@ window.onload = function () {
 
 function nextIntegralPointAfterLogin() {
   clickClock();
+  // 一小时之后再次触发
   window.setInterval(clickClock, 60 * 60 * 1000);
 }
 
@@ -151,6 +153,7 @@ function ran() {
     img1();
   }
   function isSteinsGate() {
+    //  返回小于或等于一个给定数字的最大整数
     if (Math.floor(Math.random() * 8) == sgVar) {
       sg[0] = 1;
       sg[1] = 0;
