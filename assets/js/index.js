@@ -105,10 +105,10 @@ function tick() {
     nowTimeNumbers -= 120000;
   }
   console.log(time);
-  var x = 0;
+  var parityCheckFlag = 0;
+  parityCheckFlag++;
   var y = '1';
-  x++;
-  y = y + (x % 2 + 1);
+  y = y + (parityCheckFlag % 2 + 1);
   {
     imageElements[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
     imageElements[1].src = './assets/images/' + nowTimeNumbers[1] + '.png';
