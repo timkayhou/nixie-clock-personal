@@ -79,7 +79,7 @@ window.onload = () => {
   var date, dateIntegralPoint = new Date();
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("clockDiv"));
-  s = clockStart();
+  s = setClockEverySecond();
   dateIntegralPoint.setHours(date.getHours() + 1);
   dateIntegralPoint.setMinutes(0);
   dateIntegralPoint.setSeconds(0);
@@ -88,7 +88,7 @@ window.onload = () => {
 
 function imgDragStart() { return false; }
 
-function clockStart() {
+function setClockEverySecond() {
   // 每秒更新一次时间图片
   return window.setInterval(setTimeImages, 1000);
 }
@@ -136,7 +136,7 @@ function clickClock() {
   sgVar = (sgVar + 1) % 8;
   // 停止计时器
   clearInterval(s);
-  window.setTimeout(() => { s = clockStart() }, 3000);
+  window.setTimeout(() => { s = setClockEverySecond() }, 3000);
   ran();
 }
 
