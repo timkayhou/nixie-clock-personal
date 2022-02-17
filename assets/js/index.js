@@ -1,4 +1,3 @@
-var flag = 0;
 var sgVar = 0;
 var s;
 // 用于时钟内每秒左右闪烁的点的图片的切换
@@ -90,12 +89,12 @@ window.onload = () => {
 function imgDragStart() { return false; }
 
 function t() {
-  // 每秒执行一次tick函数
+  // 每秒更新一次时间图片
   var t = window.setInterval(setTimeImages, 1000);
-  flag++;
   return t;
 }
 
+// 根据当前时间设置时钟图片
 function setTimeImages() {
   // 获取当前时间
   var time = new Date();
