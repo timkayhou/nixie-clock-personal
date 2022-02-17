@@ -149,10 +149,10 @@ function ran() {
       steinsGateArray[i] = j++ % 10;
     }
     // 设置图片路径
-    img1();
+    setImagePath();
   }
   // 设置图片路径
-  function img1() {
+  function setImagePath() {
     obj[0].src = './assets/images/' + steinsGateArray[0] + '.png';
     obj[1].src = './assets/images/' + '11.png';
     obj[2].src = './assets/images/' + steinsGateArray[1] + '.png';
@@ -180,6 +180,6 @@ function ran() {
       }
     }
     // 设置图片路径
-    img1();
+    setImagePath();
   }
 }
