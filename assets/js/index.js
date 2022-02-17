@@ -86,6 +86,7 @@ window.onload = () => {
 function imgDragStart() { return false; }
 
 function t() {
+  // 每秒执行一次tick函数
   var t = window.setInterval(tick, 1000);
   flag++;
   return t;
@@ -94,14 +95,14 @@ function t() {
 function tick() {
   // 获取当前时间
   var time = new Date();
-  var nowTimeNumbers;
-  // 12小时制且当前时间为下午时
+  // 获取当前十分秒的六位数字
+  var nowTimeNumbers = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+  // 当设置为12小时制且当前时间为下午时
   if (defaultTimeSystem == 12 && time.getHours() > 12) {
-    nowTimeNumbers = toNum(time.getHours() - 12) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+    // 将当前时间转换为12小时制
+    nowTimeNumbers -= 120000;
   }
-  else {
-    nowTimeNumbers = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
-  }
+  console.log(time);
   var y = '1';
   x++;
   y = y + (x % 2 + 1);
