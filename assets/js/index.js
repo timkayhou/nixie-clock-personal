@@ -1,6 +1,5 @@
 var flag = 0;
 var sgVar = 0;
-var x = 0;
 var s;
 // 默认24小时制
 var defaultTimeSystem = 24;
@@ -75,6 +74,7 @@ window.wallpaperPropertyListener = {
 
 // 网页加载完毕后立刻执行
 window.onload = () => {
+  // 获取当前时间
   var date, dateIntegralPoint = new Date();
   for (i in document.images) document.images[i].ondragstart = imgDragStart;
   __drag(_$("clockDiv"));
@@ -105,6 +105,7 @@ function tick() {
     nowTimeNumbers -= 120000;
   }
   console.log(time);
+  var x = 0;
   var y = '1';
   x++;
   y = y + (x % 2 + 1);
