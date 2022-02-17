@@ -108,15 +108,15 @@ function tick() {
   }
   console.log(time);
   parityCheckFlag++;
-  var y = '1';
-  y = y + (parityCheckFlag % 2 + 1);
+  var dotImageFileName = '1';
+  dotImageFileName = dotImageFileName + (parityCheckFlag % 2 + 1);
   {
     imageElements[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
     imageElements[1].src = './assets/images/' + nowTimeNumbers[1] + '.png';
-    imageElements[2].src = './assets/images/' + y + '.png';
+    imageElements[2].src = './assets/images/' + dotImageFileName + '.png';
     imageElements[3].src = './assets/images/' + nowTimeNumbers[2] + '.png';
     imageElements[4].src = './assets/images/' + nowTimeNumbers[3] + '.png';
-    imageElements[5].src = './assets/images/' + y + '.png';
+    imageElements[5].src = './assets/images/' + dotImageFileName + '.png';
     imageElements[6].src = './assets/images/' + nowTimeNumbers[4] + '.png';
     imageElements[7].src = './assets/images/' + nowTimeNumbers[5] + '.png';
   }
