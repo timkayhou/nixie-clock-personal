@@ -71,7 +71,6 @@ window.wallpaperPropertyListener = {
   }
 }
 
-
 // 网页加载完毕后立刻执行
 window.onload = () => {
   var date, dateIntegralPoint = new Date();
@@ -85,12 +84,6 @@ window.onload = () => {
 }
 
 function imgDragStart() { return false; }
-
-function nextIntegralPointAfterLogin() {
-  clickClock();
-  // 一小时之后再次触发
-  window.setInterval(clickClock, 60 * 60 * 1000);
-}
 
 function t() {
   var t = window.setInterval(tick, 1000);
@@ -121,6 +114,11 @@ function tick() {
     obj1[7].src = './assets/images/' + time1[5] + '.png';
   }
 }
+function nextIntegralPointAfterLogin() {
+  clickClock();
+  // 一小时之后再次触发
+  window.setInterval(clickClock, 60 * 60 * 1000);
+}
 
 function toNum(num) {
   if (num < 10) { return '0' + num; }
@@ -137,9 +135,9 @@ function clickClock() {
 }
 
 function ran() {
-  var sg = new Array(7);
+  var steinsGateArray = new Array(7);
   for (var i = 0; i < 7; i++) {
-    sg[i] = 0;
+    steinsGateArray[i] = 0;
   }
   var j = 1;
   var obj = document.getElementsByTagName("img");
@@ -148,39 +146,40 @@ function ran() {
   window.setTimeout(isSteinsGate, 2000);
   function tick1() {
     for (var i = 0; i < 7; i++) {
-      sg[i] = j++ % 10;
+      steinsGateArray[i] = j++ % 10;
     }
     // 设置图片路径
     img1();
   }
   // 设置图片路径
   function img1() {
-    obj[0].src = './assets/images/' + sg[0] + '.png';
+    obj[0].src = './assets/images/' + steinsGateArray[0] + '.png';
     obj[1].src = './assets/images/' + '11.png';
-    obj[2].src = './assets/images/' + sg[1] + '.png';
-    obj[3].src = './assets/images/' + sg[2] + '.png';
-    obj[4].src = './assets/images/' + sg[3] + '.png';
-    obj[5].src = './assets/images/' + sg[4] + '.png';
-    obj[6].src = './assets/images/' + sg[5] + '.png';
-    obj[7].src = './assets/images/' + sg[6] + '.png';
+    obj[2].src = './assets/images/' + steinsGateArray[1] + '.png';
+    obj[3].src = './assets/images/' + steinsGateArray[2] + '.png';
+    obj[4].src = './assets/images/' + steinsGateArray[3] + '.png';
+    obj[5].src = './assets/images/' + steinsGateArray[4] + '.png';
+    obj[6].src = './assets/images/' + steinsGateArray[5] + '.png';
+    obj[7].src = './assets/images/' + steinsGateArray[6] + '.png';
   }
   function isSteinsGate() {
-    // 返回小于或等于一个给定数字的最大整数
+    // 随机数乘8取整
     if (Math.floor(Math.random() * 8) == sgVar) {
-      sg[0] = 1;
-      sg[1] = 0;
-      sg[2] = 4;
-      sg[3] = 8;
-      sg[4] = 5;
-      sg[5] = 9;
-      sg[6] = 6;
+      steinsGateArray[0] = 1;
+      steinsGateArray[1] = 0;
+      steinsGateArray[2] = 4;
+      steinsGateArray[3] = 8;
+      steinsGateArray[4] = 5;
+      steinsGateArray[5] = 9;
+      steinsGateArray[6] = 6;
     }
     else {
-      sg[0] = Math.floor(Math.random() * 2);
+      steinsGateArray[0] = Math.floor(Math.random() * 2);
       for (var i = 1; i < 7; i++) {
-        sg[i] = Math.floor(Math.random() * 10);
+        steinsGateArray[i] = Math.floor(Math.random() * 10);
       }
     }
+    // 设置图片路径
     img1();
   }
 }
