@@ -2,7 +2,9 @@ var flag = 0;
 var sgVar = 0;
 var x = 0;
 var s;
+// 默认24小时制
 var defaultTimeSystem = 24;
+// 默认不透明
 var defaultTransparency = 100;
 // 网页主体元素
 var bodyElement = document.getElementsByTagName('body');
