@@ -164,10 +164,10 @@ function worldLineChangeRate() {
   window.setTimeout(isSteinsGate, 2000);
   function tick1() {
     // 遍历7位数组
-    for (var i = 0; i < steinsGateArray.length; i++) {
+    steinsGateArray.forEach((value, index) => {
       // 1到9之间递增
-      steinsGateArray[i] = j++ % 10;
-    }
+      steinsGateArray[index] = j++ % 10;
+    });
     // 设置图片路径
     setImagePath();
   }
