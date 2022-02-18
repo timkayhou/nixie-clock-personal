@@ -1,6 +1,3 @@
-var _$ = function(id){
-  return document.getElementById(id);
-}
 function bindEvent(node,eventType,callback){
   if(node.attachEvent){
     if (eventType.indexOf('on')) {
