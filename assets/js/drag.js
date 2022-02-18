@@ -1,30 +1,35 @@
-function bindEvent(node,eventType,callback){
-  if(node.attachEvent){
+// 用于绑定事件的工具函数
+function bindEvent(element, eventType, callback) {
+  if (element.attachEvent) {
     if (eventType.indexOf('on')) {
-      eventType = 'on' + eventType
+      eventType = 'on' + eventType;
     }
-    node.attachEvent(eventType,callback);
+    element.attachEvent(eventType, callback);
   }else{
     if(!eventType.indexOf('on')){
-      eventType = eventType.substring(2,eventType.length)
+      eventType = eventType.substring(2, eventType.length);
     }
-    node.addEventListener(eventType,callback,false);
+    element.addEventListener(eventType,callback,false);
   }
   return callback;
 }
-function removeEvent(node,eventType,callback){
-  if(node.detachEvent){
-    if(eventType.indexOf('on')){eventType = 'on' + eventType}
-    node.detachEvent(eventType,callback);
-  }
-  else{
-    if(!eventType.indexOf('on')){
-      eventType = eventType.substring(2,eventType.length);
+
+// 用于移除事件的工具函数
+function removeEvent(element, eventType, callback){
+  if (element.detachEvent) {
+    if (eventType.indexOf('on')) {
+      eventType = 'on' + eventType;
     }
-    node.removeEventListener(eventType,callback,false);
+    element.detachEvent(eventType, callback);
+  }else{
+    if(!eventType.indexOf('on')){
+      eventType = eventType.substring(2, eventType.length);
+    }
+    element.removeEventListener(eventType,callback,false);
   }
 }
 
+// 拖拽函数
 function __drag(dragger){
   var drag = bindEvent(dragger, 'onmousedown', (e) => {
     e = e || event;
