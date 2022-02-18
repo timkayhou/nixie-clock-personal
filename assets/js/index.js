@@ -8,11 +8,11 @@ var defaultTimeSystem = 24;
 // 默认不透明
 var defaultTransparency = 100;
 // 网页主体数组对象
-var bodyElement = document.getElementsByTagName('body');
+const bodyElement = document.getElementsByTagName('body');
 // 钟表块数组对象
-var clockElement = document.getElementsByTagName("div");
+const clockElement = document.getElementsByTagName("div");
 // 表盘数字数组对象
-var imageElements = document.getElementsByTagName("img");
+const imageElements = document.getElementsByTagName("img");
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
