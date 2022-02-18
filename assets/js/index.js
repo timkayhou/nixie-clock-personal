@@ -81,7 +81,7 @@ window.onload = () => {
   var dateIntegralPoint = new Date();
   // 加载完毕后开始监测世界线变动率
   worldLineChangeRate();
-  __drag(_$("clockDiv"));
+  __drag(document.getElementById("clockDiv"));
   clockStatus = setClockEverySecond();
   // 取得下个小时的整点时间
   dateIntegralPoint.setHours(date.getHours() + 1);
