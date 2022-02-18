@@ -42,7 +42,6 @@ function __drag(dragger){
     let limitY = mouseY - objectY ;
     let screenBodyWidth = document.body.clientWidth - 800;
     let screenBodyHeight = document.body.clientHeight - 242.22;
-
     if(!dragger.onDrag){
       dragger.onDrag = bindEvent(document, 'onmousemove', (e) => {
         e = e || event;
