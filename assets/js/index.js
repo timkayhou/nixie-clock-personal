@@ -81,7 +81,7 @@ window.onload = () => {
   var dateIntegralPoint = new Date();
   //
   for (i in document.images) {
-    document.images[i].ondragstart = imageDragStart;
+    document.images[i].ondragstart = false;
   }
   __drag(_$("clockDiv"));
   clockStatus = setClockEverySecond();
@@ -90,9 +90,6 @@ window.onload = () => {
   dateIntegralPoint.setSeconds(0);
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
-
-// 图片开始拖拽
-function imageDragStart() { return false; }
 
 function setClockEverySecond() {
   // 每秒更新一次时间图片
@@ -125,15 +122,22 @@ function setTimeImages() {
     imageElements[7].src = './assets/images/' + nowTimeNumbers[5] + '.png';
   }
 }
+
 function nextIntegralPointAfterLogin() {
   clickClock();
   // 一小时之后再次触发
   window.setInterval(clickClock, 60 * 60 * 1000);
 }
 
+// 将时间数字转化为两位数字符串
 function toNum(num) {
-  if (num < 10) { return '0' + num; }
-  else { return "" + num; }
+  if (num < 10) {
+    // 一位数字补零
+    return '0' + num;
+  } else {
+    // 两位数字转化为字符串
+    return "" + num;
+  }
 
 }
 
