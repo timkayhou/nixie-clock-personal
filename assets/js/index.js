@@ -7,11 +7,11 @@ var parityCheckFlag = 0;
 var defaultTimeSystem = 24;
 // 默认不透明
 var defaultTransparency = 100;
-// 网页主体元素
+// 网页主体数组对象
 var bodyElement = document.getElementsByTagName('body');
-// 钟表块元素
+// 钟表块数组对象
 var clockElement = document.getElementsByTagName("div");
-// 表盘数字元素
+// 表盘数字数组对象
 var imageElements = document.getElementsByTagName("img");
 
 // 首次加载或修改属性时触发
@@ -81,7 +81,7 @@ window.onload = () => {
   var dateIntegralPoint = new Date();
   // 加载完毕后开始监测世界线变动率
   worldLineChangeRate();
-  __drag(document.getElementById("clockDiv"));
+  __drag(clockElement[0]);
   clockStatus = setClockEverySecond();
   // 取得下个小时的整点时间
   dateIntegralPoint.setHours(date.getHours() + 1);
