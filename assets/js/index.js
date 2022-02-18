@@ -8,7 +8,7 @@ var defaultTimeSystem = 24;
 // 默认不透明
 var defaultTransparency = 100;
 // 网页主体body元素
-const bodyElement = document.getElementsByTagName('body')[0];
+const bodyElementArray = document.getElementsByTagName('body');
 // 钟表块数组对象
 const clockElementArray = document.getElementsByTagName("div");
 // 表盘数字数组对象
@@ -29,18 +29,18 @@ window.wallpaperPropertyListener = {
     if (properties.useDefaultWallpaper) {
       if (properties.useDefaultWallpaper.value) {
         // 默认全黑背景
-        bodyElement.style.background = "#000000";
+        bodyElementArray[0].style.background = "#000000";
       }
     }
     if (properties.setWallpaper) {
       if (properties.setWallpaper.value) {
         // 手动设置壁纸
-        bodyElement.style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
+        bodyElementArray[0].style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
       }
     }
     if (properties.wallpaperFillType) {
       // 设置图片填充方式
-      bodyElement.style.backgroundSize = properties.wallpaperFillType.value;
+      bodyElementArray[0].style.backgroundSize = properties.wallpaperFillType.value;
     }
     if (properties.clockTransparency) {
       // 设置时钟透明度
