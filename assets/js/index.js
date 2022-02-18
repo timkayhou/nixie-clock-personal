@@ -102,18 +102,19 @@ function setClockEverySecond() {
 // 根据当前时间设置时钟图片
 function setTimeImages() {
   // 获取当前时间
-  var time = new Date();
+  let time = new Date();
   // 获取当前十分秒的六位数字
-  var nowTimeNumbers = toNum(time.getHours()) + toNum(time.getMinutes()) + toNum(time.getSeconds());
+  let nowTimeNumbers = toTwoDigitsString(time.getHours()) + toTwoDigitsString(time.getMinutes()) + toTwoDigitsString(time.getSeconds());
+  // 点的图片名称共通部分是1开始
+  let dotImageFileName = '1';
+  // 点的图片文件名为'11'或'12'
+  dotImageFileName = dotImageFileName + (parityCheckFlag % 2 + 1);
+  parityCheckFlag++;
   // 当设置为12小时制且当前时间为下午时
   if (defaultTimeSystem == 12 && time.getHours() > 12) {
     // 将当前时间转换为12小时制
     nowTimeNumbers -= 120000;
   }
-  parityCheckFlag++;
-  var dotImageFileName = '1';
-  // 点的图片文件名为'11'或'12'
-  dotImageFileName = dotImageFileName + (parityCheckFlag % 2 + 1);
   {
     imageElementArray[0].src = imagePath + nowTimeNumbers[0] + imageType;
     imageElementArray[1].src = imagePath + nowTimeNumbers[1] + imageType;
@@ -133,7 +134,7 @@ function nextIntegralPointAfterLogin() {
 }
 
 // 将时间数字转化为两位数字符串
-function toNum(num) {
+function toTwoDigitsString(num) {
   if (num < 10) {
     // 一位数字补零
     return '0' + num;
