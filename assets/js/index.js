@@ -158,9 +158,9 @@ function clickClock() {
 // 开始监测世界线变动率
 function worldLineChangeRate() {
   // 随机数用的7位全0数组
-  var steinsGateArray = new Array(7).fill(0);
-  var j = 1;
-  var time1 = window.setInterval(tick1, 50);
+  let steinsGateArray = new Array(7).fill(0);
+  let j = 1;
+  let time1 = window.setInterval(tick1, 50);
   window.setTimeout(() => { clearInterval(time1) }, 2000);
   window.setTimeout(isSteinsGate, 2000);
   function tick1() {
