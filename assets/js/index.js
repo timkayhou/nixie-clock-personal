@@ -49,26 +49,19 @@ window.wallpaperPropertyListener = {
       clockElementArray[0].style.opacity = defaultTransparency / 100;
     }
     if (properties.unlockClockPosition) {
-      if (properties.unlockClockPosition.value) {
-        // 解除时钟位置锁定
-        clockElementArray[0].onDrag = true;
-      }
-      else {
-        // 锁定时钟位置
-        clockElementArray[0].onDrag = false;
-      }
+      // 解除或锁定时钟位置
+      properties.unlockClockPosition.value ? clockElementArray[0].onDrag = true : clockElementArray[0].onDrag = true;
     }
     if (properties.isClockCenter) {
       if (properties.isClockCenter.value) {
         // 解除时钟位置锁定
         clockElementArray[0].onDrag = true;
+        // 恢复默认外边距
+        clockElementArray[0].style.margin = "auto";
         // 时钟移动到左上角
         clockElementArray[0].style.left = 0;
         clockElementArray[0].style.top = 0;
-        // 恢复默认外边距
-        clockElementArray[0].style.margin = "auto";
-      }
-      else {
+      }else {
         // 时钟居中
         clockElementArray[0].style.margin = 0;
         // 锁定时钟位置
@@ -135,14 +128,8 @@ function nextIntegralPointAfterLogin() {
 
 // 将时间数字转化为两位数字符串
 function toTwoDigitsString(num) {
-  if (num < 10) {
-    // 一位数字补零
-    return '0' + num;
-  } else {
-    // 两位数字转化为字符串
-    return "" + num;
-  }
-
+  // 一位数字补零
+  return num < 10 ? '0' + num : '' + num;
 }
 
 function clickClock() {
@@ -152,6 +139,7 @@ function clickClock() {
   clearInterval(clockStatus);
   // 3秒之后开始时钟
   window.setTimeout(() => { clockStatus = setClockEverySecond() }, 3000);
+  // 开始监测世界线变动率
   worldLineChangeRate();
 }
 
@@ -188,8 +176,7 @@ function worldLineChangeRate() {
     // 0到8的随机数
     if (Math.floor(Math.random() * 8) == sgVar) {
       steinsGateArray = [1, 0, 4, 8, 5, 9, 6];
-    }
-    else {
+    }else {
       // 0或1的随机数
       steinsGateArray[0] = Math.floor(Math.random() * 2);
       steinsGateArray.forEach((value, index) => {
