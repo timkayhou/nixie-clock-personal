@@ -141,6 +141,7 @@ function toNum(num) {
 }
 
 function clickClock() {
+  // 1到7之间递增
   sgVar = (sgVar + 1) % 8;
   // 停止时钟
   clearInterval(clockStatus);
@@ -159,7 +160,9 @@ function worldLineChangeRate() {
   window.setTimeout(() => { clearInterval(time1) }, 2000);
   window.setTimeout(isSteinsGate, 2000);
   function tick1() {
-    for (var i = 0; i < 7; i++) {
+    // 遍历7位数组
+    for (var i = 0; i < steinsGateArray.length; i++) {
+      // 1到9之间递增
       steinsGateArray[i] = j++ % 10;
     }
     // 设置图片路径
