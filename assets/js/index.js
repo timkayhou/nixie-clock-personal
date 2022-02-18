@@ -76,14 +76,11 @@ window.wallpaperPropertyListener = {
 
 // 网页加载完毕后立刻执行
 window.onload = () => {
-  worldLineChangeRate();
   // 获取当前时间
   var date = new Date();
   var dateIntegralPoint = new Date();
-  //
-  for (i in document.images) {
-    document.images[i].ondragstart = false;
-  }
+  // 加载完毕后开始监测世界线变动率
+  worldLineChangeRate();
   __drag(_$("clockDiv"));
   clockStatus = setClockEverySecond();
   // 取得下个小时的整点时间
@@ -93,8 +90,8 @@ window.onload = () => {
   window.setTimeout(nextIntegralPointAfterLogin, dateIntegralPoint - date);
 }
 
+// 每秒更新一次时间图片
 function setClockEverySecond() {
-  // 每秒更新一次时间图片
   return window.setInterval(setTimeImages, 1000);
 }
 
@@ -157,7 +154,7 @@ function worldLineChangeRate() {
   // 随机数用的7位全0数组
   var steinsGateArray = new Array(7).fill(0);
   var j = 1;
-  var obj = document.getElementsByTagName("img");
+  var imageElements = document.getElementsByTagName("img");
   var time1 = window.setInterval(tick1, 50);
   window.setTimeout(() => { clearInterval(time1) }, 2000);
   window.setTimeout(isSteinsGate, 2000);
@@ -170,17 +167,18 @@ function worldLineChangeRate() {
   }
   // 设置图片路径
   function setImagePath() {
-    obj[0].src = './assets/images/' + steinsGateArray[0] + '.png';
-    obj[1].src = './assets/images/' + '11.png';
-    obj[2].src = './assets/images/' + steinsGateArray[1] + '.png';
-    obj[3].src = './assets/images/' + steinsGateArray[2] + '.png';
-    obj[4].src = './assets/images/' + steinsGateArray[3] + '.png';
-    obj[5].src = './assets/images/' + steinsGateArray[4] + '.png';
-    obj[6].src = './assets/images/' + steinsGateArray[5] + '.png';
-    obj[7].src = './assets/images/' + steinsGateArray[6] + '.png';
+    imageElements[0].src = './assets/images/' + steinsGateArray[0] + '.png';
+    imageElements[1].src = './assets/images/' + '11.png';
+    imageElements[2].src = './assets/images/' + steinsGateArray[1] + '.png';
+    imageElements[3].src = './assets/images/' + steinsGateArray[2] + '.png';
+    imageElements[4].src = './assets/images/' + steinsGateArray[3] + '.png';
+    imageElements[5].src = './assets/images/' + steinsGateArray[4] + '.png';
+    imageElements[6].src = './assets/images/' + steinsGateArray[5] + '.png';
+    imageElements[7].src = './assets/images/' + steinsGateArray[6] + '.png';
   }
+
   function isSteinsGate() {
-    // 随机数乘8取整
+    // 0到8的随机数
     if (Math.floor(Math.random() * 8) == sgVar) {
       steinsGateArray[0] = 1;
       steinsGateArray[1] = 0;
@@ -191,6 +189,7 @@ function worldLineChangeRate() {
       steinsGateArray[6] = 6;
     }
     else {
+      // 0或1的随机数
       steinsGateArray[0] = Math.floor(Math.random() * 2);
       for (var i = 1; i < 7; i++) {
         steinsGateArray[i] = Math.floor(Math.random() * 10);
