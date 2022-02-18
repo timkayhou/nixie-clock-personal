@@ -9,7 +9,7 @@ function bindEvent(element, eventType, callback) {
     if(!eventType.indexOf('on')){
       eventType = eventType.substring(2, eventType.length);
     }
-    element.addEventListener(eventType,callback,false);
+    element.addEventListener(eventType, callback, false);
   }
   return callback;
 }
@@ -48,23 +48,22 @@ function __drag(dragger){
         e = e || event;
         dragger.style.left = (e.clientX || e.pageX) - limitX + 'px';
         dragger.style.top = (e.clientY || e.pageY) - limitY + 'px';
-        if(parseInt(dragger.style.left)<0){
+        if(parseInt(dragger.style.left) < 0){
           dragger.style.left = 0 + "px";
         }
-        if(parseInt(dragger.style.left)>screenBodyWidth){
+        if(parseInt(dragger.style.left) > screenBodyWidth){
           dragger.style.left=screenBodyWidth + "px";
         }
-        if(parseInt(dragger.style.top)>screenBodyHeight){
+        if(parseInt(dragger.style.top) > screenBodyHeight){
           dragger.style.top = screenBodyHeight + "px";
         }
-        if(parseInt(dragger.style.top)<0){
+        if(parseInt(dragger.style.top) < 0){
           dragger.style.top = 0 + "px";
         }
       });
       dragger.onDragEnd = bindEvent(document, 'onmouseup', () => {
-
-        removeEvent(document, 'onmousemove',dragger.onDrag);
-        removeEvent(document, 'onmouseup',dragger.onDragEnd);
+        removeEvent(document, 'onmousemove', dragger.onDrag);
+        removeEvent(document, 'onmouseup', dragger.onDragEnd);
         try{
           delete dragger.onDrag;
           delete dragger.onDragEnd;
