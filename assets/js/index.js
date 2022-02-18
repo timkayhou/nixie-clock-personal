@@ -13,6 +13,10 @@ const bodyElement = document.getElementsByTagName('body')[0];
 const clockElementArray = document.getElementsByTagName("div");
 // 表盘数字数组对象
 const imageElementArray = document.getElementsByTagName("img");
+// 图片路径
+const imagePath = './assets/images/';
+// 图片格式
+const imageType = '.png';
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
@@ -111,14 +115,14 @@ function setTimeImages() {
   // 点的图片文件名为'11'或'12'
   dotImageFileName = dotImageFileName + (parityCheckFlag % 2 + 1);
   {
-    imageElementArray[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
-    imageElementArray[1].src = './assets/images/' + nowTimeNumbers[1] + '.png';
-    imageElementArray[2].src = './assets/images/' + dotImageFileName + '.png';
-    imageElementArray[3].src = './assets/images/' + nowTimeNumbers[2] + '.png';
-    imageElementArray[4].src = './assets/images/' + nowTimeNumbers[3] + '.png';
-    imageElementArray[5].src = './assets/images/' + dotImageFileName + '.png';
-    imageElementArray[6].src = './assets/images/' + nowTimeNumbers[4] + '.png';
-    imageElementArray[7].src = './assets/images/' + nowTimeNumbers[5] + '.png';
+    imageElementArray[0].src = imagePath + nowTimeNumbers[0] + imageType;
+    imageElementArray[1].src = imagePath + nowTimeNumbers[1] + imageType;
+    imageElementArray[2].src = imagePath + dotImageFileName + imageType;
+    imageElementArray[3].src = imagePath + nowTimeNumbers[2] + imageType;
+    imageElementArray[4].src = imagePath + nowTimeNumbers[3] + imageType;
+    imageElementArray[5].src = imagePath + dotImageFileName + imageType;
+    imageElementArray[6].src = imagePath + nowTimeNumbers[4] + imageType;
+    imageElementArray[7].src = imagePath + nowTimeNumbers[5] + imageType;
   }
 }
 
@@ -169,14 +173,14 @@ function worldLineChangeRate() {
   }
   // 设置图片路径
   function setImagePath() {
-    imageElementArray[0].src = './assets/images/' + steinsGateArray[0] + '.png';
-    imageElementArray[1].src = './assets/images/' + '11' + '.png';
-    imageElementArray[2].src = './assets/images/' + steinsGateArray[1] + '.png';
-    imageElementArray[3].src = './assets/images/' + steinsGateArray[2] + '.png';
-    imageElementArray[4].src = './assets/images/' + steinsGateArray[3] + '.png';
-    imageElementArray[5].src = './assets/images/' + steinsGateArray[4] + '.png';
-    imageElementArray[6].src = './assets/images/' + steinsGateArray[5] + '.png';
-    imageElementArray[7].src = './assets/images/' + steinsGateArray[6] + '.png';
+    imageElementArray[0].src = imagePath + steinsGateArray[0] + imageType;
+    imageElementArray[1].src = imagePath + '11' + imageType;
+    imageElementArray[2].src = imagePath + steinsGateArray[1] + imageType;
+    imageElementArray[3].src = imagePath + steinsGateArray[2] + imageType;
+    imageElementArray[4].src = imagePath + steinsGateArray[3] + imageType;
+    imageElementArray[5].src = imagePath + steinsGateArray[4] + imageType;
+    imageElementArray[6].src = imagePath + steinsGateArray[5] + imageType;
+    imageElementArray[7].src = imagePath + steinsGateArray[6] + imageType;
   }
 
   function isSteinsGate() {
