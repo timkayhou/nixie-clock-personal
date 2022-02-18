@@ -7,12 +7,12 @@ var parityCheckFlag = 0;
 var defaultTimeSystem = 24;
 // 默认不透明
 var defaultTransparency = 100;
-// 网页主体数组对象
-const bodyElement = document.getElementsByTagName('body');
+// 网页主体body元素
+const bodyElement = document.getElementsByTagName('body')[0];
 // 钟表块数组对象
-const clockElement = document.getElementsByTagName("div");
+const clockElementArray = document.getElementsByTagName("div");
 // 表盘数字数组对象
-const imageElements = document.getElementsByTagName("img");
+const imageElementArray = document.getElementsByTagName("img");
 
 // 首次加载或修改属性时触发
 window.wallpaperPropertyListener = {
@@ -25,50 +25,50 @@ window.wallpaperPropertyListener = {
     if (properties.useDefaultWallpaper) {
       if (properties.useDefaultWallpaper.value) {
         // 默认全黑背景
-        bodyElement[0].style.background = "#000000";
+        bodyElement.style.background = "#000000";
       }
     }
     if (properties.setWallpaper) {
       if (properties.setWallpaper.value) {
         // 手动设置壁纸
-        bodyElement[0].style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
+        bodyElement.style.backgroundImage = 'url(' + 'file:///' + properties.setWallpaper.value + ')';
       }
     }
     if (properties.wallpaperFillType) {
       // 设置图片填充方式
-      bodyElement[0].style.backgroundSize = properties.wallpaperFillType.value;
+      bodyElement.style.backgroundSize = properties.wallpaperFillType.value;
     }
     if (properties.clockTransparency) {
       // 设置时钟透明度
       defaultTransparency = properties.clockTransparency.value;
-      clockElement[0].style.filter = 'alpha(opacity=' + defaultTransparency + ')';
-      clockElement[0].style.opacity = defaultTransparency / 100;
+      clockElementArray[0].style.filter = 'alpha(opacity=' + defaultTransparency + ')';
+      clockElementArray[0].style.opacity = defaultTransparency / 100;
     }
     if (properties.unlockClockPosition) {
       if (properties.unlockClockPosition.value) {
         // 解除时钟位置锁定
-        clockElement[0].onDrag = true;
+        clockElementArray[0].onDrag = true;
       }
       else {
         // 锁定时钟位置
-        clockElement[0].onDrag = false;
+        clockElementArray[0].onDrag = false;
       }
     }
     if (properties.isClockCenter) {
       if (properties.isClockCenter.value) {
         // 解除时钟位置锁定
-        clockElement[0].onDrag = true;
+        clockElementArray[0].onDrag = true;
         // 时钟移动到左上角
-        clockElement[0].style.left = 0;
-        clockElement[0].style.top = 0;
+        clockElementArray[0].style.left = 0;
+        clockElementArray[0].style.top = 0;
         // 恢复默认外边距
-        clockElement[0].style.margin = "auto";
+        clockElementArray[0].style.margin = "auto";
       }
       else {
         // 时钟居中
-        clockElement[0].style.margin = 0;
+        clockElementArray[0].style.margin = 0;
         // 锁定时钟位置
-        clockElement[0].onDrag = false;
+        clockElementArray[0].onDrag = false;
       }
     }
   }
@@ -81,7 +81,7 @@ window.onload = () => {
   var dateIntegralPoint = new Date();
   // 加载完毕后开始监测世界线变动率
   worldLineChangeRate();
-  __drag(clockElement[0]);
+  __drag(clockElementArray[0]);
   clockStatus = setClockEverySecond();
   // 取得下个小时的整点时间
   dateIntegralPoint.setHours(date.getHours() + 1);
@@ -111,14 +111,14 @@ function setTimeImages() {
   // 点的图片文件名为'11'或'12'
   dotImageFileName = dotImageFileName + (parityCheckFlag % 2 + 1);
   {
-    imageElements[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
-    imageElements[1].src = './assets/images/' + nowTimeNumbers[1] + '.png';
-    imageElements[2].src = './assets/images/' + dotImageFileName + '.png';
-    imageElements[3].src = './assets/images/' + nowTimeNumbers[2] + '.png';
-    imageElements[4].src = './assets/images/' + nowTimeNumbers[3] + '.png';
-    imageElements[5].src = './assets/images/' + dotImageFileName + '.png';
-    imageElements[6].src = './assets/images/' + nowTimeNumbers[4] + '.png';
-    imageElements[7].src = './assets/images/' + nowTimeNumbers[5] + '.png';
+    imageElementArray[0].src = './assets/images/' + nowTimeNumbers[0] + '.png';
+    imageElementArray[1].src = './assets/images/' + nowTimeNumbers[1] + '.png';
+    imageElementArray[2].src = './assets/images/' + dotImageFileName + '.png';
+    imageElementArray[3].src = './assets/images/' + nowTimeNumbers[2] + '.png';
+    imageElementArray[4].src = './assets/images/' + nowTimeNumbers[3] + '.png';
+    imageElementArray[5].src = './assets/images/' + dotImageFileName + '.png';
+    imageElementArray[6].src = './assets/images/' + nowTimeNumbers[4] + '.png';
+    imageElementArray[7].src = './assets/images/' + nowTimeNumbers[5] + '.png';
   }
 }
 
@@ -155,7 +155,6 @@ function worldLineChangeRate() {
   // 随机数用的7位全0数组
   var steinsGateArray = new Array(7).fill(0);
   var j = 1;
-  var imageElements = document.getElementsByTagName("img");
   var time1 = window.setInterval(tick1, 50);
   window.setTimeout(() => { clearInterval(time1) }, 2000);
   window.setTimeout(isSteinsGate, 2000);
@@ -170,14 +169,14 @@ function worldLineChangeRate() {
   }
   // 设置图片路径
   function setImagePath() {
-    imageElements[0].src = './assets/images/' + steinsGateArray[0] + '.png';
-    imageElements[1].src = './assets/images/' + '11' + '.png';
-    imageElements[2].src = './assets/images/' + steinsGateArray[1] + '.png';
-    imageElements[3].src = './assets/images/' + steinsGateArray[2] + '.png';
-    imageElements[4].src = './assets/images/' + steinsGateArray[3] + '.png';
-    imageElements[5].src = './assets/images/' + steinsGateArray[4] + '.png';
-    imageElements[6].src = './assets/images/' + steinsGateArray[5] + '.png';
-    imageElements[7].src = './assets/images/' + steinsGateArray[6] + '.png';
+    imageElementArray[0].src = './assets/images/' + steinsGateArray[0] + '.png';
+    imageElementArray[1].src = './assets/images/' + '11' + '.png';
+    imageElementArray[2].src = './assets/images/' + steinsGateArray[1] + '.png';
+    imageElementArray[3].src = './assets/images/' + steinsGateArray[2] + '.png';
+    imageElementArray[4].src = './assets/images/' + steinsGateArray[3] + '.png';
+    imageElementArray[5].src = './assets/images/' + steinsGateArray[4] + '.png';
+    imageElementArray[6].src = './assets/images/' + steinsGateArray[5] + '.png';
+    imageElementArray[7].src = './assets/images/' + steinsGateArray[6] + '.png';
   }
 
   function isSteinsGate() {
