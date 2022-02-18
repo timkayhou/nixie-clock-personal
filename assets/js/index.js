@@ -171,7 +171,7 @@ function worldLineChangeRate() {
   // 设置图片路径
   function setImagePath() {
     imageElements[0].src = './assets/images/' + steinsGateArray[0] + '.png';
-    imageElements[1].src = './assets/images/' + '11.png';
+    imageElements[1].src = './assets/images/' + '11' + '.png';
     imageElements[2].src = './assets/images/' + steinsGateArray[1] + '.png';
     imageElements[3].src = './assets/images/' + steinsGateArray[2] + '.png';
     imageElements[4].src = './assets/images/' + steinsGateArray[3] + '.png';
@@ -183,13 +183,7 @@ function worldLineChangeRate() {
   function isSteinsGate() {
     // 0到8的随机数
     if (Math.floor(Math.random() * 8) == sgVar) {
-      steinsGateArray[0] = 1;
-      steinsGateArray[1] = 0;
-      steinsGateArray[2] = 4;
-      steinsGateArray[3] = 8;
-      steinsGateArray[4] = 5;
-      steinsGateArray[5] = 9;
-      steinsGateArray[6] = 6;
+      steinsGateArray = [1, 0, 4, 8, 5, 9, 6];
     }
     else {
       // 0或1的随机数
