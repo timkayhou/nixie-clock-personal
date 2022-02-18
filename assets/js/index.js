@@ -192,9 +192,10 @@ function worldLineChangeRate() {
     else {
       // 0或1的随机数
       steinsGateArray[0] = Math.floor(Math.random() * 2);
-      for (var i = 1; i < 7; i++) {
-        steinsGateArray[i] = Math.floor(Math.random() * 10);
-      }
+      steinsGateArray.forEach((value, index) => {
+        // 0到9的随机数
+        steinsGateArray[index] = Math.floor(Math.random() * 10);
+      });
     }
     // 设置图片路径
     setImagePath();
