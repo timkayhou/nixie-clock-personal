@@ -33,15 +33,15 @@ function removeEvent(element, eventType, callback){
 function __drag(dragger){
   var drag = bindEvent(dragger, 'onmousedown', (e) => {
     e = e || event;
-    var mouseX = e.clientX || e.pageX;
-    var mouseY = e.clientY || e.pageY;
-    var objStyle = dragger.currentStyle || window.getComputedStyle(dragger,null);
-    var objX = parseInt(objStyle.left) || 0;
-    var objY = parseInt(objStyle.top) || 0;
-    var limitX = mouseX - objX ;
-    var limitY = mouseY - objY ;
-    var screenBodyWidth = document.body.clientWidth - 800;
-    var screenBodyHeight = document.body.clientHeight - 242.22;
+    let mouseX = e.clientX || e.pageX;
+    let mouseY = e.clientY || e.pageY;
+    let objStyle = dragger.currentStyle || window.getComputedStyle(dragger,null);
+    let objX = parseInt(objStyle.left) || 0;
+    let objY = parseInt(objStyle.top) || 0;
+    let limitX = mouseX - objX ;
+    let limitY = mouseY - objY ;
+    let screenBodyWidth = document.body.clientWidth - 800;
+    let screenBodyHeight = document.body.clientHeight - 242.22;
 
     if(!dragger.onDrag){
       dragger.onDrag = bindEvent(document, 'onmousemove', (e) => {
