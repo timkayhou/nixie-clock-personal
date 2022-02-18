@@ -76,6 +76,7 @@ window.wallpaperPropertyListener = {
 
 // 网页加载完毕后立刻执行
 window.onload = () => {
+  worldLineChangeRate();
   // 获取当前时间
   var date = new Date();
   var dateIntegralPoint = new Date();
@@ -85,6 +86,7 @@ window.onload = () => {
   }
   __drag(_$("clockDiv"));
   clockStatus = setClockEverySecond();
+  // 取得下个小时的整点时间
   dateIntegralPoint.setHours(date.getHours() + 1);
   dateIntegralPoint.setMinutes(0);
   dateIntegralPoint.setSeconds(0);
@@ -147,14 +149,13 @@ function clickClock() {
   clearInterval(clockStatus);
   // 3秒之后开始时钟
   window.setTimeout(() => { clockStatus = setClockEverySecond() }, 3000);
-  ran();
+  worldLineChangeRate();
 }
 
-function ran() {
-  var steinsGateArray = new Array(7);
-  for (var i = 0; i < 7; i++) {
-    steinsGateArray[i] = 0;
-  }
+// 开始监测世界线变动率
+function worldLineChangeRate() {
+  // 随机数用的7位全0数组
+  var steinsGateArray = new Array(7).fill(0);
   var j = 1;
   var obj = document.getElementsByTagName("img");
   var time1 = window.setInterval(tick1, 50);
