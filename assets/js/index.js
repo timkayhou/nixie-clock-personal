@@ -81,8 +81,8 @@ window.wallpaperPropertyListener = {
 // 网页加载完毕后立刻执行
 window.onload = () => {
   // 获取当前时间
-  var date = new Date();
-  var dateIntegralPoint = new Date();
+  let date = new Date();
+  let dateIntegralPoint = new Date();
   // 加载完毕后开始监测世界线变动率
   worldLineChangeRate();
   __drag(clockElementArray[0]);
