@@ -35,11 +35,11 @@ function __drag(dragger){
     e = e || event;
     let mouseX = e.clientX || e.pageX;
     let mouseY = e.clientY || e.pageY;
-    let objStyle = dragger.currentStyle || window.getComputedStyle(dragger,null);
-    let objX = parseInt(objStyle.left) || 0;
-    let objY = parseInt(objStyle.top) || 0;
-    let limitX = mouseX - objX ;
-    let limitY = mouseY - objY ;
+    let objectStyle = dragger.currentStyle || window.getComputedStyle(dragger,null);
+    let objectX = parseInt(objectStyle.left) || 0;
+    let objectY = parseInt(objectStyle.top) || 0;
+    let limitX = mouseX - objectX ;
+    let limitY = mouseY - objectY ;
     let screenBodyWidth = document.body.clientWidth - 800;
     let screenBodyHeight = document.body.clientHeight - 242.22;
 
